@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Alive Events client portal theme  ·  version 3  ·  2026-10-16
+   Alive Events client portal theme  ·  version 4  ·  2026-10-16
    Made with Elevate Portal Studio (Elevate DJ Academy)
-   Layout: Sidebar  ·  Style: Stage  ·  Fonts: Figtree / Figtree
+   Layout: Stage  ·  Style: Stage  ·  Fonts: Figtree / Figtree
 
    HOW TO USE: upload this file (GitHub Pages is free), then paste its link into
    DJ Event Planner > Website Tools > Client Portal > Appearance > Use A Custom Theme.
@@ -201,6 +201,10 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   opacity: .88;
   white-space: pre-line;
 }
+/* Big hero on the Home page, a slimmer header everywhere else. */
+/* With a logo, inner pages get a compact branded bar: a smaller logo, no headline. */
+body:not(:has(.djep-welcometextbox)) #djep-header { --ps-logo-h: min(72px, 16vw); --ps-logo-pos: center center; min-height: calc(var(--ps-logo-h) + 48px); padding: 24px !important; }
+body:not(:has(.djep-welcometextbox)) #djep-header::before, body:not(:has(.djep-welcometextbox)) #djep-header::after { display: none; }
 
 /* ---------- 4. Menu ---------- */
 #djep-navbar {
@@ -332,6 +336,8 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
 .djep-innercontentdiv, .djep_innerboxtext { color: var(--ps-text); background: transparent !important; }
 [id="djep-countdownclock"] { text-align: center; overflow: hidden; }
 [id="djep-countdownclock"] .countdownclock { display: inline-block; max-width: 100%; }
+/* Countdown turned off in Portal Studio: DJEP's countdown clock box is left out of the Home page. */
+[id="djep-countdownclock"], #djep-content .countdownclock, .ps-wp-count { display: none !important; }
 :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox)):hover { border-color: rgba(201,155,58,0.28) !important;  }
 /* Event cards on the Home / Events page */
 .djep-singleeventdiv {
@@ -904,20 +910,8 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
   table[data-search_by] input[type="text"] { width: 100% !important; }
 }
 
-/* ---------- 14b. Layout: Sidebar ---------- */
-@media (min-width: 992px) {
-  body #djep-page { display: grid !important; grid-template-columns: 280px minmax(0, 1fr); grid-template-rows: auto 1fr; min-height: 100vh; background: linear-gradient(to right, #0b0c0d 0, #0b0c0d 280px, transparent 280px) !important; }
-  #djep-page > * { min-width: 0; }
-  #djep-header { grid-column: 1; grid-row: 1; aspect-ratio: 1 / 1; min-height: 0 !important; max-width: none; margin: 16px 16px 0 !important; padding: 22px !important; align-items: flex-start !important; justify-content: flex-end !important; text-align: left !important; border-radius: var(--ps-radius) !important; box-shadow: 0 18px 40px -18px rgba(0,0,0,.6); --ps-logo-pos: left 22px top 22px; --ps-logo-h: min(60px, 18vw); }
-  #djep-header img { max-height: 84px !important; max-width: 100% !important; }
-  #djep-header::before { font-size: 21px !important; line-height: 1.15 !important; }
-  #djep-header::after { display: none !important; }
-  #djep-navbar { grid-column: 1; grid-row: 2; align-self: start; position: sticky !important; top: 0; max-height: 100vh; overflow-y: auto; background: transparent !important; border: 0 !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
-  #djep-navigation { flex-direction: column !important; flex-wrap: nowrap !important; align-items: stretch !important; gap: 2px; max-width: none; padding: 18px 16px 28px !important; }
-  #djep-navigation li a { display: flex !important; width: 100%; justify-content: flex-start; min-height: 46px; padding: 0 16px !important; border-radius: 12px; font-size: 15px !important; }
-  #djep-content { grid-column: 2; grid-row: 1 / span 2; width: 100%; max-width: 1180px; margin: 0 !important; padding: 34px 40px 64px !important; }
-  #footer { grid-column: 2; }
-}
+/* ---------- 14b. Layout: Stage ---------- */
+/* Stage: the standard arrangement above. */
 
 /* ---------- 15. Printing (A4 paper) ---------- */
 @page { size: A4; margin: 14mm 12mm; }
