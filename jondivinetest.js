@@ -1,6 +1,42 @@
-/* Alive Events client portal add-on  ·  version 4  ·  made with Elevate Portal Studio
+/* Alive Events client portal add-on  ·  version 5  ·  made with Elevate Portal Studio
    Loaded by one line in DJ Event Planner > Website Tools > Client Portal > Appearance > Custom Scripting Code.
    Publishing from Portal Studio replaces this file, so the portal picks up changes by itself. */
+(function (win, doc) {
+    if (!doc || !/planningforms/i.test(win.location.pathname)) return;
+    var text = function (n) { return String(n.textContent || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim(); };
+    var cellsAt = function (row) { var out = [], k = 0; [].slice.call(row.cells).forEach(function (c) { out.push({ cell: c, col: k }); k += c.colSpan || 1; }); return out; };
+    function enhance(t) {
+      if (t.__psGrid || /^planning_form_table_/.test(t.id || '')) return;
+      var rows = [].slice.call(t.rows);
+      if (rows.length < 2 || rows[0].querySelector('input, select, textarea')) return;
+      var heads = {};
+      cellsAt(rows[0]).forEach(function (h) { heads[h.col] = text(h.cell); });
+      var named = Object.keys(heads).filter(function (k) { return heads[k]; });
+      if (named.length < 2) return;
+      var body = rows.slice(1).map(cellsAt);
+      var filled = {};
+      body.forEach(function (r) { r.forEach(function (x) { if (text(x.cell) || x.cell.querySelector('input, select, textarea, img, a')) filled[x.col] = true; }); });
+      t.__psGrid = true;
+      t.classList.add('ps-grid');
+      rows[0].classList.add('ps-grid-head');
+      var editable = !!t.querySelector('input, select, textarea');
+      var has = function (c) { return !!(text(c) || c.querySelector('input, select, textarea, img, a')); };
+      body.forEach(function (r, ri) {
+        var answered = false;
+        r.forEach(function (x) {
+          if (!heads[x.col] && !filled[x.col]) x.cell.classList.add('ps-grid-spacer');
+          else if (heads[x.col]) {
+            x.cell.setAttribute('data-ps-label', heads[x.col]);
+            if (has(x.cell)) answered = true; else if (!editable) x.cell.classList.add('ps-grid-empty');
+          } else x.cell.classList.add('ps-grid-rowlabel');
+        });
+        // On a read-only form, a row with no answers at all is left out of the phone layout.
+        if (!editable && !answered) rows[ri + 1].classList.add('ps-grid-blank');
+      });
+    }
+    function run() { [].slice.call(doc.querySelectorAll('#djep-content table')).forEach(enhance); }
+    if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', run); else run();
+  })(window, document);
 (function (win, doc, cfg) {
     if (!doc || doc.getElementById('ps-music-root')) return;
 
@@ -25,7 +61,7 @@
         ':where(.ps-music-sub){margin:0 0 12px;font-size:13px;opacity:.75}' +
         ':where(.ps-music-row){display:flex;gap:8px;flex-wrap:wrap}:where(.ps-music-row input){flex:1;min-width:200px;padding:10px 12px}' +
         ':where(.ps-music-status){margin-top:8px;font-size:13px;min-height:1em}:where(.ps-music-status.ok){color:#1f8a52;font-weight:600}:where(.ps-music-status.bad){color:#c0392b;font-weight:600}' +
-        ':where(.ps-music-player){margin-top:10px}:where(.ps-music-player iframe){display:block;width:100%;border:0;border-radius:12px}' +
+        ':where(.ps-music-status:empty,.ps-music-player:empty){display:none}:where(.ps-music-player){margin-top:10px}:where(.ps-music-player iframe){display:block;width:100%;border:0;border-radius:12px}' +
         ':where(.ps-logos){display:inline-flex;gap:4px}:where(.ps-logos i){display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;font-style:normal;font-size:11px;font-weight:800;color:#fff}' +
         ':where(.ps-logos i.sp){background:#1ed760;color:#000}:where(.ps-logos i.am){background:#fa233b}' +
         ':where(.ps-playlists){margin:0 0 16px}:where(.ps-playlists-title){margin:0 0 8px;font-weight:700}:where(.ps-playlists-row){display:flex;flex-wrap:wrap;gap:8px}' +
