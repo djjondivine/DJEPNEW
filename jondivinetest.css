@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Alive Events client portal theme  ·  version 6  ·  2026-10-16
+   Alive Events client portal theme  ·  version 7  ·  2026-10-16
    Made with Elevate Portal Studio (Elevate DJ Academy)
-   Layout: Editorial  ·  Style: Stage  ·  Fonts: San Francisco (Apple) / San Francisco (Apple)
+   Layout: Immersive  ·  Style: Stage  ·  Fonts: San Francisco (Apple) / San Francisco (Apple)
 
    HOW TO USE: upload this file (GitHub Pages is free), then paste its link into
    DJ Event Planner > Website Tools > Client Portal > Appearance > Use A Custom Theme.
@@ -15,24 +15,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --ps-page: #420663;
-  --ps-card: #4d156c;
-  --ps-card-2: #562073;
+  --ps-page: #181020;
+  --ps-card: #1e0f29;
+  --ps-card-2: #291a33;
   --ps-text: #f7f4ee;
-  --ps-muted: #ad92b6;
-  --ps-line: #683981;
-  --ps-accent: #ab29f2;
-  --ps-accent-2: #9e50bd;
-  --ps-accent-hover: #b84bf4;
-  --ps-accent-soft: #601987;
-  --ps-accent-text: #c976f7;
-  --ps-accent-soft-text: #d28ef8;
+  --ps-muted: #999497;
+  --ps-line: #413449;
+  --ps-accent: #893fb2;
+  --ps-accent-2: #713489;
+  --ps-accent-hover: #9a53c2;
+  --ps-accent-soft: #331944;
+  --ps-accent-text: #a464c8;
+  --ps-accent-soft-text: #ae74ce;
   --ps-on-accent: #ffffff;
-  --ps-nav: #28043b;
+  --ps-nav: #15111a;
   --ps-nav-text: #f7f4ee;
-  --ps-nav-muted: #bdb1bc;
-  --ps-field: #370f4e;
-  --ps-field-line: #654674;
+  --ps-nav-muted: #b8b4b3;
+  --ps-field: #160b1e;
+  --ps-field-line: #4c4350;
   --ps-success: #3ddc84;
   --ps-danger: #ff7b7b;
   --ps-radius: 10px;
@@ -40,14 +40,14 @@
   --ps-button-radius: 999px;
   --ps-pad: 16px;
   --ps-shadow: none;
-  --ps-shadow-hover: 0 0 0 1px rgba(171,41,242,0.35);
+  --ps-shadow-hover: 0 0 0 1px rgba(137,63,178,0.35);
   --ps-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --ps-font-heading: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --ps-button-bg: #ab29f2;
+  --ps-button-bg: #893fb2;
   --ps-ease: cubic-bezier(.2, .7, .2, 1);
-  --ps-hero-bg: radial-gradient(110% 130% at 12% 0%, rgba(171,41,242,0.95) 0%, rgba(171,41,242,0) 62%), radial-gradient(80% 110% at 100% 0%, rgba(158,80,189,0.6) 0%, rgba(158,80,189,0) 60%), linear-gradient(180deg, #7c19b2 0%, #420663 100%);
+  --ps-hero-bg: linear-gradient(180deg, rgba(24,16,32,0) 55%, rgba(24,16,32,0.9) 100%), linear-gradient(180deg, rgba(24,16,32,0.468) 0%, rgba(24,16,32,0.85) 100%), url("jondivinetest-hero-ofjrdv.jpg") center top / cover no-repeat;
   --ps-hero-text: #ffffff;
-  --ps-ring-track: #683981;
+  --ps-ring-track: #413449;
   --ps-logo-img: url("jondivinetest-logo-ibwob2.png");
 }
 
@@ -55,7 +55,7 @@
 html { background: var(--ps-page) !important; }
 body.djep-body, body.mobile-hack, body {
   margin: 0;
-  background: radial-gradient(1100px 520px at 50% -8%, rgba(171,41,242,0.22), rgba(171,41,242,0) 70%) no-repeat, var(--ps-page) !important;
+  background: radial-gradient(1100px 520px at 50% -8%, rgba(137,63,178,0.22), rgba(137,63,178,0) 70%) no-repeat, var(--ps-page) !important;
   background-attachment: scroll !important;
   color: var(--ps-text) !important;
   font-family: var(--ps-font) !important;
@@ -75,8 +75,8 @@ img { max-width: 100%; height: auto; }
 a { color: var(--ps-accent-text); text-decoration: none; transition: color .2s var(--ps-ease), background-color .2s var(--ps-ease), border-color .2s var(--ps-ease), box-shadow .2s var(--ps-ease), transform .2s var(--ps-ease); }
 #djep-content a:not([class*="button"]):hover { text-decoration: underline; text-underline-offset: 3px; }
 #djep-content a:not([class*="button"]):not(.btn), .ps-wp a, .ps-music a { overflow-wrap: anywhere; }
-::selection { background: rgba(171,41,242,0.3); }
-:focus-visible { outline: 3px solid rgba(171,41,242,0.55) !important; outline-offset: 2px; }
+::selection { background: rgba(137,63,178,0.3); }
+:focus-visible { outline: 3px solid rgba(137,63,178,0.55) !important; outline-offset: 2px; }
 hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
 /* Dark theme: black text that DJEP writes inline would be invisible, so it follows the theme instead. */
 #djep-content font[color], #djep-content [style*="color: #000000"], #djep-content [style*="color:#000000"], #djep-content [style*="color: rgb(0, 0, 0)"], #djep-content [style*="color: black"], #djep-content [style*="color:black"] { color: inherit !important; }
@@ -151,7 +151,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   border-radius: 0;
   padding: 36px 32px !important;
   text-align: center;
-  background: #7c19b2 !important;
+  background: #15111a !important;
   --ps-logo-h: min(160px, 18vw);
   --ps-logo-pos: center 30px;
   background: var(--ps-logo-img) var(--ps-logo-pos) / auto var(--ps-logo-h) no-repeat, var(--ps-header-bg, var(--ps-hero-bg)) !important;
@@ -171,11 +171,11 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   max-height: 160px !important;
   max-width: min(80%, 460px) !important;
   object-fit: contain;
-  
+  filter: drop-shadow(0 6px 22px rgba(0,0,0,.35));
 }
 #djep-header img { display: none !important; }
 #djep-header::before {
-  content: "Let's plan your perfect night";
+  content: "Let's Get This Party Started! ";
   order: 2;
   position: relative;
   z-index: 1;
@@ -187,10 +187,10 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   letter-spacing: -.02em;
   
   white-space: pre-line;
-  
+  text-shadow: 0 2px 24px rgba(0,0,0,.35);
 }
 #djep-header::after {
-  content: "Everything for your event, all in one place.";
+  content: "Welcome To Your Online Planning Account";
   order: 3;
   position: relative;
   z-index: 1;
@@ -207,10 +207,10 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   z-index: 40;
   margin: 0 !important;
   padding: 0 !important;
-  background: #28043b !important;
+  background: #15111a !important;
   
   border: 0 !important;
-  border-bottom: 1px solid #412150 !important;
+  border-bottom: 1px solid #302c33 !important;
   box-shadow: none !important;
   width: auto !important;
   max-width: none !important;
@@ -238,7 +238,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   border-radius: var(--ps-button-radius);
   background: transparent !important;
   border: 0 !important;
-  color: #bdb1bc !important;
+  color: #b8b4b3 !important;
   font-family: var(--ps-font) !important;
   font-size: 15px !important;
   font-weight: 600 !important;
@@ -251,7 +251,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
 }
 #djep-navigation li a:hover { color: #f7f4ee !important; background: rgba(247,244,238,0.09) !important; }
 #djep-navigation li.selected a, #djep-navigation li a.selected { color: #ffffff !important; background: var(--ps-accent) !important; }
-#djep-navbar-mobile { background: #28043b !important; color: #f7f4ee !important; border: 0 !important; }
+#djep-navbar-mobile { background: #15111a !important; color: #f7f4ee !important; border: 0 !important; }
 #djep-navbar-mobile a { color: #f7f4ee !important; font-family: var(--ps-font) !important; }
 
 /* ---------- 5. Headings & text ---------- */
@@ -333,7 +333,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
 [id="djep-countdownclock"] .countdownclock { display: inline-block; max-width: 100%; }
 /* Countdown turned off in Portal Studio: DJEP's countdown clock box is left out of the Home page. */
 [id="djep-countdownclock"], #djep-content .countdownclock, .ps-wp-count { display: none !important; }
-:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])):hover { border-color: rgba(171,41,242,0.28) !important;  }
+:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])):hover { border-color: rgba(137,63,178,0.28) !important;  }
 /* Event cards on the Home / Events page */
 .djep-singleeventdiv {
   background: var(--ps-card-2) !important;
@@ -343,7 +343,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   margin-bottom: 12px !important;
   transition: transform .25s var(--ps-ease), box-shadow .25s var(--ps-ease), border-color .25s var(--ps-ease);
 }
-.djep-singleeventdiv:hover { transform: translateY(-3px); box-shadow: var(--ps-shadow-hover) !important; border-color: rgba(171,41,242,0.4) !important; }
+.djep-singleeventdiv:hover { transform: translateY(-3px); box-shadow: var(--ps-shadow-hover) !important; border-color: rgba(137,63,178,0.4) !important; }
 
 .calendar { display: inline-block; min-width: 76px; overflow: hidden; text-align: center; background: var(--ps-card) !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) !important; box-shadow: var(--ps-shadow); }
 .calendar .month { display: block; padding: 5px 8px; background: var(--ps-accent) !important; color: var(--ps-on-accent) !important; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
@@ -382,7 +382,7 @@ legend.djep-servicedetailslegend, .djep-servicedetailsbox legend { float: none; 
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:first-child { border-left: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) 0 0 var(--ps-radius-sm); }
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:last-child { border-right: 1px solid var(--ps-line) !important; border-radius: 0 var(--ps-radius-sm) var(--ps-radius-sm) 0; text-align: right; }
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:only-child { border-radius: var(--ps-radius-sm); }
-:is(.djep-documentsbox, .djep-relatedfilesbox) tr:hover > td { border-color: rgba(171,41,242,0.5) !important; background: var(--ps-accent-soft) !important; }
+:is(.djep-documentsbox, .djep-relatedfilesbox) tr:hover > td { border-color: rgba(137,63,178,0.5) !important; background: var(--ps-accent-soft) !important; }
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:first-child::before { content: "DOC"; display: inline-grid; place-items: center; width: 38px; height: 30px; margin-right: 12px; border-radius: 8px; background: var(--ps-accent-soft); color: var(--ps-accent-soft-text); font-size: 10px; font-weight: 800; letter-spacing: .06em; vertical-align: middle; }
 .djep-relatedfilesbox tr > td:first-child::before { content: "FILE"; }
 .djep-relatedfilesbox a:not([class*="button"]) { font-weight: 700; color: var(--ps-text) !important; }
@@ -441,18 +441,18 @@ legend.djep-servicedetailslegend, .djep-servicedetailsbox legend { float: none; 
 }
 #djep-content select, .ui-dialog select {
   padding-right: 38px !important;
-  background-image: linear-gradient(45deg, transparent 50%, #ad92b6 50%), linear-gradient(135deg, #ad92b6 50%, transparent 50%) !important;
+  background-image: linear-gradient(45deg, transparent 50%, #999497 50%), linear-gradient(135deg, #999497 50%, transparent 50%) !important;
   background-position: calc(100% - 19px) 50%, calc(100% - 14px) 50% !important;
   background-size: 5px 5px, 5px 5px !important;
   background-repeat: no-repeat !important;
 }
 #djep-content select[multiple], #djep-content select[size] { background-image: none !important; padding-right: 14px !important; }
 #djep-content textarea { min-height: 96px; resize: vertical; }
-#djep-content input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, #djep-content select:hover, #djep-content textarea:hover, .ui-dialog input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, .ui-dialog select:hover, .ui-dialog textarea:hover { border-color: #8a7293 !important; }
+#djep-content input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, #djep-content select:hover, #djep-content textarea:hover, .ui-dialog input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, .ui-dialog select:hover, .ui-dialog textarea:hover { border-color: #776f78 !important; }
 #djep-content input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):focus, #djep-content select:focus, #djep-content textarea:focus, .ui-dialog input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):focus, .ui-dialog select:focus, .ui-dialog textarea:focus {
   outline: none !important;
   border-color: var(--ps-accent) !important;
-  box-shadow: 0 0 0 4px rgba(171,41,242,0.18) !important;
+  box-shadow: 0 0 0 4px rgba(137,63,178,0.18) !important;
 }
 #djep-content ::placeholder { color: var(--ps-muted); opacity: .75; }
 #djep-content input[type="checkbox"], #djep-content input[type="radio"] { accent-color: var(--ps-accent); width: 18px; height: 18px; margin: 3px 6px 3px 2px; vertical-align: middle; cursor: pointer; }
@@ -513,7 +513,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   color: var(--ps-on-accent) !important;
   border: 0 !important;
   border-radius: var(--ps-button-radius) !important;
-  box-shadow: 0 6px 16px -10px rgba(171,41,242,0.8) !important;
+  box-shadow: 0 6px 16px -10px rgba(137,63,178,0.8) !important;
   font-family: var(--ps-font) !important;
   font-size: 15.5px !important;
   font-weight: 700 !important;
@@ -550,7 +550,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
 #djep-content input[type="submit"]:hover,
 #djep-content input[type="button"]:hover,
 #djep-content button[type="submit"]:hover,
-.ui-dialog .ui-dialog-buttonpane button:hover { color: var(--ps-on-accent) !important; text-decoration: none !important; transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(171,41,242,0.75) !important; }
+.ui-dialog .ui-dialog-buttonpane button:hover { color: var(--ps-on-accent) !important; text-decoration: none !important; transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(137,63,178,0.75) !important; }
 .djep-actionbutton:active,
 .djep-widgetaction:active,
 .djep-paymentbutton:active,
@@ -597,7 +597,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   padding: 8px 18px !important;
   background: transparent !important;
   color: var(--ps-text) !important;
-  border: 1.5px solid #9371a2 !important;
+  border: 1.5px solid #786e7b !important;
   border-radius: var(--ps-button-radius) !important;
   font-weight: 600 !important;
   text-decoration: none !important;
@@ -615,7 +615,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   margin: 8px !important;
   padding: 14px 28px !important;
   background: #ffffff !important;
-  border: 1px solid #a488b3 !important;
+  border: 1px solid #8d8592 !important;
   border-radius: var(--ps-radius) !important;
   box-shadow: var(--ps-shadow) !important;
   text-decoration: none !important;
@@ -653,7 +653,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
 .djep-artistsongbuttonswide:hover,
 .djep-toplistbuttons:hover,
 .djep-toplistbuttons2:hover,
-.djep-toplistbuttons3:hover { background: var(--ps-accent-soft) !important; border-color: rgba(171,41,242,0.5) !important; color: var(--ps-accent-soft-text, var(--ps-text)) !important; transform: translateY(-1px); }
+.djep-toplistbuttons3:hover { background: var(--ps-accent-soft) !important; border-color: rgba(137,63,178,0.5) !important; color: var(--ps-accent-soft-text, var(--ps-text)) !important; transform: translateY(-1px); }
 .djep-toplistbuttons2_active,
 .djep-toplistbuttons3_active { background: var(--ps-accent) !important; color: var(--ps-on-accent) !important; border-color: var(--ps-accent) !important; }
 
@@ -683,7 +683,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   font-size: 14px !important;
   text-decoration: none !important;
 }
-.ui-tabs .ui-tabs-nav li a:hover { color: var(--ps-text) !important; border-color: rgba(171,41,242,0.45) !important; }
+.ui-tabs .ui-tabs-nav li a:hover { color: var(--ps-text) !important; border-color: rgba(137,63,178,0.45) !important; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-active a, .ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
   background: var(--ps-accent) !important;
   color: var(--ps-on-accent) !important;
@@ -700,8 +700,8 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   font-weight: 700 !important;
   transition: background .2s var(--ps-ease), border-color .2s var(--ps-ease);
 }
-.ui-accordion .ui-accordion-header:hover { border-color: rgba(171,41,242,0.45) !important; }
-.ui-accordion .ui-accordion-header-active, .ui-accordion .ui-state-active { background: var(--ps-accent-soft) !important; border-color: rgba(171,41,242,0.5) !important; color: var(--ps-text) !important; border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; }
+.ui-accordion .ui-accordion-header:hover { border-color: rgba(137,63,178,0.45) !important; }
+.ui-accordion .ui-accordion-header-active, .ui-accordion .ui-state-active { background: var(--ps-accent-soft) !important; border-color: rgba(137,63,178,0.5) !important; color: var(--ps-text) !important; border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; }
 .ui-accordion .ui-accordion-content { padding: 12px 16px !important; background: var(--ps-card) !important; border: 1px solid var(--ps-line) !important; border-top: 0 !important; border-radius: 0 0 var(--ps-radius-sm) var(--ps-radius-sm) !important; }
 .ui-state-default, .ui-widget-content .ui-state-default { background-image: none !important; }
 .ui-dialog { padding: 0 !important; background: var(--ps-card) !important; color: var(--ps-text) !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius) !important; box-shadow: 0 30px 80px -20px rgba(0,0,0,.55) !important; overflow: hidden; }
@@ -733,7 +733,7 @@ table.djep-selectmusictable > tbody > tr > td { vertical-align: top; padding: 0 
 /* DJEP's grey "Instructions" note boxes (written inline) follow the theme. */
 #djep-content div[style*="E3E3E3"], #djep-content div[style*="e3e3e3"], .djep-timeline_instructions {
   width: auto !important; max-width: 440px; height: auto !important; margin: 18px auto !important; padding: 12px 16px !important;
-  background: var(--ps-card-2) !important; border: 1px dashed #855e97 !important; border-radius: var(--ps-radius-sm) !important;
+  background: var(--ps-card-2) !important; border: 1px dashed #655a6a !important; border-radius: var(--ps-radius-sm) !important;
   color: var(--ps-muted) !important; font-size: 13px !important; line-height: 1.5; text-align: left;
 }
 #djep-content div[style*="E3E3E3"] strong { color: var(--ps-text); }
@@ -761,7 +761,7 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 .djep-paginatebutton:hover { border-color: var(--ps-accent); color: var(--ps-accent) !important; }
 .djep-activepaginatebutton { background: var(--ps-button-bg); border-color: transparent; color: var(--ps-on-accent) !important; }
 /* Spotify / Apple Music add-on */
-.ps-music { margin: 0 0 16px; padding: 16px; border-radius: var(--ps-radius-sm); background: var(--ps-accent-soft); border: 1px solid rgba(171,41,242,0.35); }
+.ps-music { margin: 0 0 16px; padding: 16px; border-radius: var(--ps-radius-sm); background: var(--ps-accent-soft); border: 1px solid rgba(137,63,178,0.35); }
 .ps-music-title { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-weight: 700; color: var(--ps-text); }
 .ps-music-sub { margin: 0 0 12px; font-size: 13px; color: var(--ps-muted); }
 .ps-music-row { display: flex; gap: 8px; }
@@ -779,7 +779,7 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 .ps-playlists-title { margin: 0 0 8px; font-weight: 700; color: var(--ps-text); }
 .ps-playlists-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .ps-playlist { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: var(--ps-button-radius); background: var(--ps-card-2); border: 1px solid var(--ps-line); color: var(--ps-text) !important; font-weight: 600; font-size: 13.5px; text-decoration: none !important; transition: transform .2s var(--ps-ease), border-color .2s var(--ps-ease), box-shadow .2s var(--ps-ease); }
-.ps-playlist:hover { transform: translateY(-2px); border-color: rgba(171,41,242,0.6); box-shadow: 0 10px 22px -12px rgba(171,41,242,0.8); }
+.ps-playlist:hover { transform: translateY(-2px); border-color: rgba(137,63,178,0.6); box-shadow: 0 10px 22px -12px rgba(137,63,178,0.8); }
 
 /* ---------- 11b. Plan My Event, planning tools, timeline & contact ---------- */
 /* Manage Music: DJEP's own themes draw these three links as pictures. With a custom theme they are empty,
@@ -787,11 +787,11 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-guestrequestsimage, #djep-specialsongsimage) { padding: 4px !important; border: 0 !important; }
 :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-guestrequestsimage, #djep-specialsongsimage) a {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; margin: 4px; padding: 10px 20px;
-  border-radius: var(--ps-button-radius); border: 1.5px solid #9371a2; background: var(--ps-card);
+  border-radius: var(--ps-button-radius); border: 1.5px solid #786e7b; background: var(--ps-card);
   color: var(--ps-text) !important; font-weight: 700; font-size: 14.5px; white-space: nowrap; text-decoration: none !important;
   transition: transform .2s var(--ps-ease), border-color .2s var(--ps-ease), background .2s var(--ps-ease), box-shadow .2s var(--ps-ease);
 }
-#djep-addsongimage a { background: var(--ps-button-bg); border-color: transparent; color: var(--ps-on-accent) !important; box-shadow: 0 6px 16px -10px rgba(171,41,242,0.8); }
+#djep-addsongimage a { background: var(--ps-button-bg); border-color: transparent; color: var(--ps-on-accent) !important; box-shadow: 0 6px 16px -10px rgba(137,63,178,0.8); }
 :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-guestrequestsimage, #djep-specialsongsimage) a:hover { transform: translateY(-2px); border-color: var(--ps-accent); }
 #djep-addsongimage a:empty::before { content: "\266B  Browse Music"; white-space: pre; }
 #djep-musicrequestsimage a:empty::before { content: "Song Requests"; }
@@ -823,6 +823,13 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 
 /* ---------- 12. Welcome page (optional Welcome Text; it carries its own styles) ---------- */
 #djep-content .djep-welcometextbox:has(.ps-wp) { padding: 0 !important; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible; }
+/* The welcome page's icons live here, not in the welcome code: DJEP's Welcome Text box refuses anything that
+   looks like an embedded image. Without this file the welcome page simply shows no icon tiles. */
+.ps-wp .ps-wp-ico { display: inline-block; }
+.ps-wp .ps-wp-btn { padding-left: 9px; }
+.ps-wp-i-cal { --wp-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='2.5'/%3E%3Cpath d='M16 3v4M8 3v4M3 10h18M8 14h3v3H8z'/%3E%3C/svg%3E"); }
+.ps-wp-i-up { --wp-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 15V4M7 9l5-5 5 5M4 15v3.5A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5V15'/%3E%3C/svg%3E"); }
+.ps-wp-i-play { --wp-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l10.5-6.5z' fill='black'/%3E%3C/svg%3E"); }
 
 /* ---------- 13. Motion ---------- */
 @keyframes ps-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
@@ -940,15 +947,15 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 
 /* ---------- 14c. DJEP's phone version (served to phones as a separate page layout) ---------- */
 /* Menu bar */
-#djep-navbar-mobile .navbar { background: #28043b !important; background-image: none !important; border: 0 !important; border-bottom: 1px solid #452654 !important; box-shadow: 0 8px 22px -14px rgba(0,0,0,.55) !important; }
+#djep-navbar-mobile .navbar { background: #15111a !important; background-image: none !important; border: 0 !important; border-bottom: 1px solid #353138 !important; box-shadow: 0 8px 22px -14px rgba(0,0,0,.55) !important; }
 #djep-navbar-mobile .navbar-brand { color: #f7f4ee !important; font-family: var(--ps-font-heading) !important; font-weight: 800 !important; font-size: 15px !important; text-shadow: none !important; }
-#djep-navbar-mobile .navbar-toggle { border: 1px solid #452654 !important; border-radius: 10px !important; background: transparent !important; }
+#djep-navbar-mobile .navbar-toggle { border: 1px solid #353138 !important; border-radius: 10px !important; background: transparent !important; }
 #djep-navbar-mobile .navbar-toggle .icon-bar { background: #f7f4ee !important; }
-#djep-navbar-mobile .navbar-collapse { border-color: #452654 !important; background: #28043b !important; box-shadow: none !important; max-height: calc(100vh - 52px); }
-#djep-navbar-mobile .nav > li > a { color: #bdb1bc !important; font-family: var(--ps-font) !important; font-weight: 600 !important; text-shadow: none !important; background: transparent !important; }
+#djep-navbar-mobile .navbar-collapse { border-color: #353138 !important; background: #15111a !important; box-shadow: none !important; max-height: calc(100vh - 52px); }
+#djep-navbar-mobile .nav > li > a { color: #b8b4b3 !important; font-family: var(--ps-font) !important; font-weight: 600 !important; text-shadow: none !important; background: transparent !important; }
 #djep-navbar-mobile .nav > li > a:hover, #djep-navbar-mobile .nav > li > a:focus, #djep-navbar-mobile .nav > .open > a { color: #f7f4ee !important; background: rgba(247,244,238,0.08) !important; }
 #djep-navbar-mobile .nav > li.djepm-home > a, #djep-navbar-mobile .caret { color: #f7f4ee !important; }
-#djep-navbar-mobile .dropdown-menu { background: #4d156c !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) !important; box-shadow: none !important; }
+#djep-navbar-mobile .dropdown-menu { background: #1e0f29 !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) !important; box-shadow: none !important; }
 #djep-navbar-mobile .dropdown-menu > li > a { color: var(--ps-text) !important; background: transparent !important; white-space: normal !important; }
 #djep-navbar-mobile .dropdown-menu > li > a:hover { color: var(--ps-accent-text) !important; background: var(--ps-accent-soft) !important; }
 /* Bootstrap pieces the phone pages use */
@@ -961,7 +968,7 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 #djep-content .width90hack { width: 100% !important; }
 #djep-content .btn { display: inline-flex !important; align-items: center; justify-content: center; min-height: 40px; padding: 8px 18px !important; border-radius: var(--ps-button-radius) !important; font-family: var(--ps-font) !important; font-weight: 700 !important; text-shadow: none !important; box-shadow: none !important; background-image: none !important; }
 #djep-content .btn-primary, #djep-content .btn-success, #djep-content .btn-info { background: var(--ps-button-bg) !important; border: 1px solid transparent !important; color: var(--ps-on-accent) !important; }
-#djep-content .btn-default { background: transparent !important; border: 1.5px solid #9371a2 !important; color: var(--ps-text) !important; }
+#djep-content .btn-default { background: transparent !important; border: 1.5px solid #786e7b !important; color: var(--ps-text) !important; }
 #djep-content .btn:hover { filter: brightness(1.06); }
 #djep-content .table-bordered, #djep-content .table-bordered > tbody > tr > :is(td, th), #djep-content .metro-table :is(td, th) { border-color: var(--ps-line) !important; background: transparent !important; }
 #djep-content .table-bordered th { color: var(--ps-muted) !important; font-size: 12px !important; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
@@ -989,18 +996,21 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 #djep-content .djepm-searchbutton { margin-left: 8px; }
 #djep-content .djepm-toplistbuttons { margin: 3px !important; }
 
-/* ---------- 14b. Layout: Editorial ---------- */
-@media (min-width: 992px) {
-  body #djep-page { display: grid !important; grid-template-columns: minmax(340px, 38%) minmax(0, 1fr); grid-template-rows: auto 1fr; min-height: 100vh; }
-  #djep-page > * { min-width: 0; }
-  body #djep-header { grid-column: 1; grid-row: 1 / span 3; position: sticky !important; top: 0; height: 100vh; min-height: 0 !important; max-width: none; margin: 0 !important; padding: 56px 44px !important; align-items: flex-start !important; justify-content: flex-end !important; text-align: left !important; border-radius: 0 !important; box-shadow: none !important; --ps-logo-pos: left 44px top 52px; --ps-logo-h: min(84px, 18vw); }
-  #djep-header::before { font-size: clamp(34px, 3.4vw, 62px) !important; line-height: 1.02 !important; }
-  #djep-header::after { font-size: 17px !important; }
-  #djep-navbar { grid-column: 2; grid-row: 1; position: sticky !important; top: 0; }
-  #djep-navigation { justify-content: flex-start !important; max-width: none; padding: 12px 28px !important; gap: 0; }
-  #djep-navigation li a { padding: 0 11px !important; font-size: 14.4px !important; }
-  #djep-content { grid-column: 2; grid-row: 2; width: 100%; max-width: 1000px; margin: 0 !important; padding: 36px 44px 72px !important; }
-  #footer { grid-column: 2; }
+/* ---------- 14b. Layout: Immersive ---------- */
+/* Your hero (photo or brand colors) blurred behind the whole page. */
+html { background: #181020 !important; }
+body.djep-body, body { background: transparent !important; }
+body::before { content: ""; position: fixed; inset: -40px; z-index: -2; background: var(--ps-hero-bg); filter: blur(30px) saturate(1.3); pointer-events: none; }
+body::after { content: ""; position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(24,16,32,0.35) 0%, rgba(24,16,32,0.82) 60%); pointer-events: none; }
+#djep-header { --ps-header-bg: transparent; color: #f7f4ee !important; box-shadow: none !important; margin: 0 auto !important; }
+#djep-header::before, #djep-header::after { text-shadow: 0 2px 26px rgba(24,16,32,0.6); }
+#djep-navbar { position: sticky !important; top: 12px; z-index: 40; width: fit-content; max-width: calc(100% - 24px); margin: 0 auto 6px !important; border-radius: 999px !important; background: rgba(21,17,26,0.5) !important; -webkit-backdrop-filter: saturate(1.8) blur(22px); backdrop-filter: saturate(1.8) blur(22px); border: 1px solid rgba(247,244,238,0.14) !important; }
+#djep-navigation { padding: 6px !important; }
+#djep-navigation li a { border-radius: 999px !important; }
+.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"]), .djep-singleeventdiv { background: rgba(30,15,41,0.72) !important; border-color: rgba(247,244,238,0.1) !important; }
+.ps-wp .ps-wp-card { background: rgba(30,15,41,0.72); }
+@media (max-width: 767px) {
+  #djep-navbar { width: auto; max-width: none; margin: 0 8px 4px !important; overflow: hidden; border-radius: 22px !important; }
 }
 
 /* ---------- 15. Printing (A4 paper) ---------- */
@@ -1015,16 +1025,16 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
   html body #djep-page { display: block !important; background: none !important; }
   body::before, body::after, #djep-content::before { display: none !important; }
   #djep-navbar { position: static !important; }
-  #djep-header { position: static !important; height: auto !important; aspect-ratio: auto !important; max-width: none !important; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; min-height: 0 !important; margin: 0 0 14px !important; padding: 0 0 10px !important; background: none !important; color: #111111 !important; border-radius: 0 !important; box-shadow: none !important; border-bottom: 2.5px solid #ab29f2 !important; }
+  #djep-header { position: static !important; height: auto !important; aspect-ratio: auto !important; max-width: none !important; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; min-height: 0 !important; margin: 0 0 14px !important; padding: 0 0 10px !important; background: none !important; color: #111111 !important; border-radius: 0 !important; box-shadow: none !important; border-bottom: 2.5px solid #893fb2 !important; }
   #djep-header img { max-height: 52px !important; filter: none !important; }
   #djep-header { min-height: 56px !important; justify-content: flex-end !important; background: var(--ps-logo-img) left center / auto 52px no-repeat !important; }
-  #djep-header::before { content: "Alive Events" !important; display: block !important; order: 2; font-size: 11pt !important; font-weight: 700; color: #ab29f2 !important; text-shadow: none !important; letter-spacing: .04em; max-width: none; }
+  #djep-header::before { content: "Alive Events" !important; display: block !important; order: 2; font-size: 11pt !important; font-weight: 700; color: #893fb2 !important; text-shadow: none !important; letter-spacing: .04em; max-width: none; }
   #djep-header::after { display: none !important; }
   #djep-content { max-width: none !important; margin: 0 !important; padding: 0 !important; }
-  .djep-h1, .djep-h2, .djep-h3, #djep-content h1, #djep-content h2, #djep-content h3 { color: #ab29f2 !important; break-after: avoid; page-break-after: avoid; }
+  .djep-h1, .djep-h2, .djep-h3, #djep-content h1, #djep-content h2, #djep-content h3 { color: #893fb2 !important; break-after: avoid; page-break-after: avoid; }
   .djep-h1, #djep-content h1 { font-size: 18pt !important; }
   .djep-h2, #djep-content h2 { font-size: 15pt !important; }
-  .djep-h1::after, .djep-h2::after { background: #ab29f2 !important; }
+  .djep-h1::after, .djep-h2::after { background: #893fb2 !important; }
   :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])), .ps-wp .ps-wp-card, .djep-singleeventdiv { background: #ffffff !important; color: #111111 !important; border: 1px solid #d6d6d6 !important; border-radius: 6px !important; box-shadow: none !important; padding: 12px 14px !important; margin: 0 0 12px !important; break-inside: avoid; page-break-inside: avoid; }
   .djep-titlebar, .djep-titlebarsmall { margin: -12px -14px 10px !important; padding: 7px 14px !important; background: #f3f3f3 !important; color: #111111 !important; border-bottom: 1px solid #d6d6d6 !important; border-radius: 6px 6px 0 0 !important; font-size: 10.5pt !important; }
   #djep-content td, #djep-content th { color: #111111 !important; background: transparent !important; border-bottom: 1px solid #e3e3e3 !important; padding: 5px 8px !important; }
@@ -1037,7 +1047,7 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
   #djep-content textarea { min-height: 3em !important; height: auto !important; field-sizing: content; resize: none; overflow: visible; }
   #djep-content, #djep-content p, #djep-content td, #djep-content th, #djep-content li, #djep-content label, #djep-content span, #djep-content div, #djep-content strong, #djep-content b, .questiontitle { color: #111111 !important; }
   #djep-content small, #autosavecountdowntimer { color: #555555 !important; }
-  #djep-content input[type="checkbox"], #djep-content input[type="radio"] { accent-color: #ab29f2; }
+  #djep-content input[type="checkbox"], #djep-content input[type="radio"] { accent-color: #893fb2; }
   /* Save confirmations are only useful on screen. */
   #alert_message_div, #alert_message2_div, .djep-titlebarconfirm, .djep-titlebarmusicconfirm, #password_save_confirmation, #autosavecountdowntimer { display: none !important; }
   .djep-titlebarnotices, #warning_div, #client_visible_notes { background: #fff8e6 !important; border-color: #e8c26a !important; }
@@ -1045,10 +1055,10 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
   /* DJEP's built-in print rules add each link's web address after it; that's noise on a printed form. */
   a[href]::after, abbr[title]::after { content: "" !important; }
   :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-printhelper, .djep-managemusicbox) { display: none !important; }
-  .djep-form-sections::before, .djep-sectiontitle::before { background: #f1f1f1 !important; border-left-color: #ab29f2 !important; }
+  .djep-form-sections::before, .djep-sectiontitle::before { background: #f1f1f1 !important; border-left-color: #893fb2 !important; }
   .djep-form-sections, .djep-sectiontitle { color: #111111 !important; }
   .calendar { box-shadow: none !important; border: 1px solid #d6d6d6 !important; }
-  #djep-content .calendar .month { background: #ab29f2 !important; color: #ffffff !important; }
+  #djep-content .calendar .month { background: #893fb2 !important; color: #ffffff !important; }
   .ps-wp-hello::before { display: none !important; }
   .ps-wp .ps-wp-title, .ps-wp .ps-wp-title b, .ps-wp .ps-wp-text, .ps-wp .ps-wp-count, .ps-wp .ps-wp-count b, .ps-wp .ps-wp-eyebrow { color: #111111 !important; }
   .ps-wp .ps-wp-count { background: #f3f3f3 !important; }
