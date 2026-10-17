@@ -1,4 +1,4 @@
-/* Alive Events client portal add-on  ·  version 7  ·  made with Elevate Portal Studio
+/* Alive Events client portal add-on  ·  version 8  ·  made with Elevate Portal Studio
    Loaded by one line in DJ Event Planner > Website Tools > Client Portal > Appearance > Custom Scripting Code.
    Publishing from Portal Studio replaces this file, so the portal picks up changes by itself. */
 (function (win, doc) {
@@ -298,3 +298,123 @@
       if (++tries < max) setTimeout(poll, 500);
     })();
   })(window, document, {"paste":true,"player":true,"title":"Add a song from Spotify or Apple Music","sub":"Paste a song link and we’ll fill in the title and artist for you.","playlistsTitle":"Need ideas? Browse our playlists","playlists":[]});
+(function (win, doc, o) {
+    if (!doc || !doc.body || doc.documentElement.hasAttribute('data-ps-motion')) return;
+    doc.documentElement.setAttribute('data-ps-motion', '1');
+    o = o || {};
+    var mq = function (q) { return !!(win.matchMedia && win.matchMedia(q).matches); };
+    var calm = mq('(prefers-reduced-motion: reduce)');
+    var all = function (sel, root) { return sel ? [].slice.call((root || doc).querySelectorAll(sel)) : []; };
+    var layer = function (cls) { var n = doc.createElement('div'); n.className = cls; n.setAttribute('aria-hidden', 'true'); return n; };
+
+    // One-line buttons
+    all(o.buttons).forEach(function (br) {
+      var sp = doc.createTextNode(' ');
+      br.parentNode.replaceChild(sp, br);
+      sp.parentNode.normalize();
+    });
+
+    // Living hero
+    if ((o.zoom || o.eq) && !calm) {
+      var host = null;
+      if (o.banner) {
+        // The dashboard's banner is drawn by the theme as #djep-content::before; a real element with the same look
+        // takes its place (the theme hides the drawn one), so the layers can sit inside it.
+        var content = doc.getElementById('djep-content');
+        var cs = content && win.getComputedStyle ? win.getComputedStyle(content, '::before') : null;
+        var txt = cs ? String(cs.content || '') : '';
+        if (cs && cs.display !== 'none' && /^["']/.test(txt)) {
+          host = doc.createElement('div');
+          host.className = 'ps-banner';
+          var t = doc.createElement('span');
+          t.className = 'ps-banner-text';
+          t.textContent = txt.slice(1, -1).replace(/\\A ?/gi, '\n').replace(/\\(.)/g, '$1');
+          host.appendChild(t);
+          content.insertBefore(host, content.firstChild);
+        }
+      } else host = doc.getElementById('djep-header');
+      if (host) {
+        var first = host.firstChild;
+        if (o.zoom) host.insertBefore(layer('ps-hero-media'), first);
+        if (o.eq) {
+          var eq = layer('ps-hero-eq');
+          var n = Math.max(24, Math.min(96, Math.round((host.offsetWidth || 900) / 12)));
+          for (var i = 0; i < n; i++) {
+            var b = doc.createElement('i');
+            b.style.setProperty('--ps-eq-d', (0.45 + Math.random() * 0.9).toFixed(2) + 's');
+            b.style.setProperty('--ps-eq-dl', (-Math.random() * 2).toFixed(2) + 's');
+            b.style.setProperty('--ps-eq-h', (0.35 + Math.random() * 0.65).toFixed(2));
+            eq.appendChild(b);
+          }
+          host.insertBefore(eq, first);
+        }
+        if (!o.banner && o.zoom) host.appendChild(layer('ps-hero-logo'));
+      }
+    }
+
+    // Panels: the outermost one under a point, never DJEP's Welcome Text wrapper around the welcome page.
+    function panel(node) {
+      var t = node && node.closest ? node.closest(o.cards) : null;
+      if (t && t.querySelector('.ps-wp')) t = null;
+      var up = t && t.parentElement && t.parentElement.closest(o.cards);
+      while (up) {
+        if (!up.querySelector('.ps-wp')) t = up;
+        up = up.parentElement && up.parentElement.closest(o.cards);
+      }
+      return t;
+    }
+
+    // Spotlight
+    if (o.spot && o.cards && mq('(hover: hover) and (pointer: fine)')) {
+      var cur = null, raf = 0, px = 0, py = 0;
+      var paint = function () {
+        raf = 0;
+        if (!cur) return;
+        var r = cur.getBoundingClientRect();
+        cur.style.setProperty('--ps-mx', Math.round(px - r.left) + 'px');
+        cur.style.setProperty('--ps-my', Math.round(py - r.top) + 'px');
+      };
+      doc.addEventListener('pointermove', function (e) {
+        if (e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
+        px = e.clientX; py = e.clientY;
+        var t = panel(e.target);
+        if (t !== cur) { if (cur) cur.classList.remove('ps-spot'); cur = t; if (cur) cur.classList.add('ps-spot'); }
+        if (cur && !raf) raf = win.requestAnimationFrame(paint);
+      }, { passive: true });
+      doc.documentElement.addEventListener('mouseleave', function () { if (cur) cur.classList.remove('ps-spot'); cur = null; });
+    }
+
+    // Scroll-in: only what starts below the screen; anything already in view is left alone.
+    if (o.reveal && !calm && 'IntersectionObserver' in win) {
+      var vh = win.innerHeight || doc.documentElement.clientHeight || 800;
+      var below = function (el) { var r = el.getBoundingClientRect(); return r.height > 0 && r.top > vh * 0.9; };
+      var finish = function (el, cls) {
+        var done = function (e) {
+          if (e && e.target !== el) return;
+          el.removeEventListener('transitionend', done);
+          el.classList.remove(cls, cls + '-in');
+          el.style.transitionDelay = '';
+        };
+        el.addEventListener('transitionend', done);
+        setTimeout(done, 1800);
+      };
+      var io = new win.IntersectionObserver(function (entries) {
+        var k = 0;
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          io.unobserve(e.target);
+          var cls = e.target.classList.contains('ps-wipe') ? 'ps-wipe' : 'ps-rv';
+          e.target.style.transitionDelay = (k++ * 0.08).toFixed(2) + 's';
+          e.target.classList.add(cls + '-in');
+          finish(e.target, cls);
+        });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+      var seen = [];
+      all(o.cards).forEach(function (el) {
+        var p = panel(el);
+        if (p && seen.indexOf(p) < 0) seen.push(p);
+      });
+      seen.forEach(function (el) { if (below(el)) { el.classList.add('ps-rv'); io.observe(el); } });
+      all(o.wipe).forEach(function (el) { if (below(el)) { el.classList.add('ps-wipe'); io.observe(el); } });
+    }
+  })(window, document, {"buttons":".djep-actionbutton br, .djep-widgetaction br, .djep-paymentbutton br, .djep-planeventbutton br, .djep-eventdetailsbutton br, .djep-changebutton br, .djep-searchbutton br, .djep-addingplaylistbutton br, .djep-addplaylistbutton br, .djep-specialsongbutton br, #submit_payment_button br, #card-submit br, #paypal_paynowbutton br, #contact_submit br, #djep-content input[type=\"submit\"] br, #djep-content input[type=\"button\"] br, #djep-content button[type=\"submit\"] br, .ui-dialog .ui-dialog-buttonpane button br","banner":false,"zoom":false,"eq":true,"spot":true,"reveal":true,"cards":".djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id=\"djep-countdownclock\"], #djep-content div[class^=\"djep-\"][class$=\"box\"]:not(.djep-requestlimitbox), #djep-content div[class^=\"djepm-\"][class*=\"box\"]:not([class*=\"playlistbox\"]), .ps-wp-card","wipe":".djep-form-sections, .djep-sectiontitle"});
