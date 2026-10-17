@@ -1,4 +1,4 @@
-/* Alive Events client portal add-on  ·  version 8  ·  made with Elevate Portal Studio
+/* Alive Events client portal add-on  ·  version 9  ·  made with Elevate Portal Studio
    Loaded by one line in DJ Event Planner > Website Tools > Client Portal > Appearance > Custom Scripting Code.
    Publishing from Portal Studio replaces this file, so the portal picks up changes by itself. */
 (function (win, doc) {
@@ -298,6 +298,93 @@
       if (++tries < max) setTimeout(poll, 500);
     })();
   })(window, document, {"paste":true,"player":true,"title":"Add a song from Spotify or Apple Music","sub":"Paste a song link and we’ll fill in the title and artist for you.","playlistsTitle":"Need ideas? Browse our playlists","playlists":[]});
+(function (win, doc) {
+    if (!doc || !doc.body || !win.getComputedStyle || doc.documentElement.hasAttribute('data-ps-contrast')) return;
+    doc.documentElement.setAttribute('data-ps-contrast', '1');
+    var MIN = 3;
+    // Left alone: the design's own pieces, form controls and buttons, and planning-form section headers (the theme
+    // paints its own layer over DJEP's header color there, which a color check can't see).
+    var SKIP = '.ps-wp, .ps-music, .ps-playlists, .ps-hero-eq, .ps-hero-media, script, style, noscript, option, select, textarea, input, button, .btn, a[class*="button"], [class*="paywith"], .djep-form-sections, .djep-sectiontitle, [class*="form-sections"]';
+    function rgb(s) {
+      var m = /rgba?\(([^)]+)\)/.exec(s || '');
+      if (!m) return null;
+      var p = m[1].split(/[\s,\/]+/).filter(Boolean).map(parseFloat);
+      return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 };
+    }
+    function lum(c) {
+      var f = function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+      return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b);
+    }
+    function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+    function sat(c) { var mx = Math.max(c.r, c.g, c.b), mn = Math.min(c.r, c.g, c.b); return mx ? (mx - mn) / mx : 0; }
+    // The design's own colors, read from the theme file (none when the theme isn't loaded).
+    var root = win.getComputedStyle(doc.documentElement);
+    var theme = function (name) { var v = root.getPropertyValue(name).trim(); if (!v) return null; var t = doc.createElement('i'); t.style.color = v; doc.body.appendChild(t); var c = rgb(win.getComputedStyle(t).color); t.remove(); return c; };
+    var T = { page: theme('--ps-page'), card2: theme('--ps-card-2'), soft: theme('--ps-accent-soft'), text: theme('--ps-text') };
+    // The surface behind an element: the nearest one with a solid color, or null when a picture or gradient is behind
+    // it (those are the design's own and can't be measured).
+    function surface(el) {
+      for (var e = el; e && e !== doc.documentElement; e = e.parentElement) {
+        var cs = win.getComputedStyle(e);
+        if (cs.backgroundImage && cs.backgroundImage !== 'none') return null;
+        var c = rgb(cs.backgroundColor);
+        if (c && c.a >= 0.5) return { el: e, c: c };
+      }
+      return T.page ? { el: null, c: T.page } : null;
+    }
+    function check(el) {
+      if (!el || el.closest(SKIP)) return;
+      var fg = rgb(win.getComputedStyle(el).color);
+      var s = surface(el);
+      if (!fg || !s || ratio(fg, s.c) >= MIN) return;
+      // Give a DJEP surface the design's matching one (theme loaded and the surface is DJEP's, not the page).
+      if (s.el && T.card2 && T.text && !/^(djep-content|djep-page|djep-header|djep-navbar)$/.test(s.el.id) && s.el !== doc.body && !s.el.closest('.ps-wp')) {
+        s.el.classList.add(sat(s.c) > 0.12 ? 'ps-fix-tint' : 'ps-fix-surface');
+        var now = surface(el);
+        if (now && ratio(rgb(win.getComputedStyle(el).color), now.c) >= MIN) return;
+        if (now && now.el === s.el && ratio(now.c, s.c) < 1.05) {
+          // DJEP forces that color (inline !important): set it the same way.
+          var want = sat(s.c) > 0.12 && T.soft ? T.soft : T.card2;
+          s.el.style.setProperty('background-color', 'rgb(' + want.r + ',' + want.g + ',' + want.b + ')', 'important');
+          now = surface(el);
+          if (now && ratio(rgb(win.getComputedStyle(el).color), now.c) >= MIN) return;
+        }
+        s = now || s;
+      }
+      // Last resort: the most readable text color on what's behind it.
+      var opts = [T.text, { r: 255, g: 255, b: 255 }, { r: 17, g: 17, b: 17 }].filter(Boolean);
+      var best = opts.sort(function (a, b) { return ratio(b, s.c) - ratio(a, s.c); })[0];
+      el.style.setProperty('color', 'rgb(' + best.r + ',' + best.g + ',' + best.b + ')', 'important');
+    }
+    function scan(rootEl) {
+      if (!rootEl || rootEl.nodeType !== 1) return;
+      var seen = [];
+      var w = doc.createTreeWalker(rootEl, 4, null);
+      for (var n = w.nextNode(); n; n = w.nextNode()) {
+        if (!/\S/.test(n.nodeValue)) continue;
+        var p = n.parentElement;
+        if (p && seen.indexOf(p) < 0) { seen.push(p); check(p); }
+      }
+    }
+    var areas = function () { return [doc.getElementById('djep-content')].concat([].slice.call(doc.querySelectorAll('.ui-dialog'))).filter(Boolean); };
+    areas().forEach(scan);
+    // DJEP adds content later (music search results, pop-ups): check what it adds.
+    if (!win.MutationObserver) return;
+    var pending = [], timer = 0;
+    var mo = new win.MutationObserver(function (records) {
+      records.forEach(function (r) {
+        if (r.type === 'childList') [].forEach.call(r.addedNodes, function (n) { if (n.nodeType === 1) pending.push(n); else if (n.parentElement) pending.push(n.parentElement); });
+        else if (r.target.nodeType === 1 && !/\bps-(fix|rv|wipe|spot)/.test(r.target.className + '')) pending.push(r.target);
+      });
+      if (!timer && pending.length) timer = setTimeout(function () {
+        timer = 0;
+        var list = pending.splice(0);
+        list.forEach(function (n) { if (doc.contains(n) && n.closest && !n.closest(SKIP)) scan(n); });
+        mo.takeRecords();
+      }, 120);
+    });
+    mo.observe(doc.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style', 'bgcolor'] });
+  })(window, document);
 (function (win, doc, o) {
     if (!doc || !doc.body || doc.documentElement.hasAttribute('data-ps-motion')) return;
     doc.documentElement.setAttribute('data-ps-motion', '1');
