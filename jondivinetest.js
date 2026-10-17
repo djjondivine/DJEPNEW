@@ -1,4 +1,4 @@
-/* Alive Events client portal add-on  ·  version 5  ·  made with Elevate Portal Studio
+/* Alive Events client portal add-on  ·  version 6  ·  made with Elevate Portal Studio
    Loaded by one line in DJ Event Planner > Website Tools > Client Portal > Appearance > Custom Scripting Code.
    Publishing from Portal Studio replaces this file, so the portal picks up changes by itself. */
 (function (win, doc) {
