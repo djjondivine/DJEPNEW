@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Alive Events client portal theme  ·  version 9  ·  2026-10-17
+   Alive Events client portal theme  ·  version 10  ·  2026-10-17
    Made with Elevate Portal Studio (Elevate DJ Academy)
-   Layout: Immersive  ·  Style: Stage  ·  Fonts: San Francisco (Apple) / San Francisco (Apple)
+   Layout: Floating  ·  Style: Sunset  ·  Fonts: Cormorant Garamond / Helvetica
 
    HOW TO USE: upload this file (GitHub Pages is free), then paste its link into
    DJ Event Planner > Website Tools > Client Portal > Appearance > Use A Custom Theme.
@@ -12,44 +12,44 @@
    DJEP button, form field or message.
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
 
 :root {
-  --ps-page: #420663;
-  --ps-card: #4d156c;
-  --ps-card-2: #562073;
-  --ps-text: #f7f4ee;
-  --ps-muted: #ad92b6;
-  --ps-line: #683981;
-  --ps-accent: #ab29f2;
-  --ps-accent-2: #9e50bd;
-  --ps-accent-hover: #b84bf4;
-  --ps-accent-soft: #601987;
-  --ps-accent-text: #c976f7;
-  --ps-accent-soft-text: #d28ef8;
+  --ps-page: #f6f6f8;
+  --ps-card: #ffffff;
+  --ps-card-2: #f8f6fa;
+  --ps-text: #420663;
+  --ps-muted: #8a669f;
+  --ps-line: #e8e1ec;
+  --ps-accent: #713489;
+  --ps-accent-2: #420663;
+  --ps-accent-hover: #863ea3;
+  --ps-accent-soft: #f1ebf3;
+  --ps-accent-text: #713489;
+  --ps-accent-soft-text: #713489;
   --ps-on-accent: #ffffff;
-  --ps-nav: #28043b;
-  --ps-nav-text: #f7f4ee;
-  --ps-nav-muted: #bdb1bc;
-  --ps-field: #370f4e;
-  --ps-field-line: #654674;
-  --ps-success: #3ddc84;
-  --ps-danger: #ff7b7b;
-  --ps-radius: 10px;
-  --ps-radius-sm: 6px;
+  --ps-nav: #ffffff;
+  --ps-nav-text: #420663;
+  --ps-nav-muted: #774c8f;
+  --ps-field: #ffffff;
+  --ps-field-line: #d9cde0;
+  --ps-success: #1f8a52;
+  --ps-danger: #c0392b;
+  --ps-radius: 16px;
+  --ps-radius-sm: 10px;
   --ps-button-radius: 999px;
-  --ps-pad: 16px;
-  --ps-shadow: none;
-  --ps-shadow-hover: 0 0 0 1px rgba(171,41,242,0.35);
-  --ps-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --ps-font-heading: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --ps-button-bg: #ab29f2;
+  --ps-pad: 22px;
+  --ps-shadow: 0 1px 2px rgba(16,24,40,0.05), 0 10px 28px -8px rgba(16,24,40,0.1);
+  --ps-shadow-hover: 0 4px 10px rgba(16,24,40,0.08), 0 28px 56px -14px rgba(16,24,40,0.22);
+  --ps-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --ps-font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --ps-button-bg: linear-gradient(135deg, #713489 0%, #420663 100%);
   --ps-ease: cubic-bezier(.2, .7, .2, 1);
-  --ps-hero-bg: linear-gradient(180deg, rgba(66,6,99,0) 55%, rgba(66,6,99,0.9) 100%), linear-gradient(180deg, rgba(0,0,0,0.468) 0%, rgba(0,0,0,0.85) 100%), url("jondivinetest-hero-ofjrdv.jpg") center center / cover no-repeat;
+  --ps-hero-bg: linear-gradient(180deg, rgba(246,246,248,0) 55%, rgba(246,246,248,0.9) 100%), linear-gradient(180deg, rgba(0,0,0,0.468) 0%, rgba(0,0,0,0.85) 100%), url("jondivinetest-hero-ofjrdv.jpg") center center / cover no-repeat;
   --ps-hero-text: #ffffff;
-  --ps-ring-track: #683981;
-  --ps-panel-shadow: inset 0 1px 0 rgba(255,255,255,.07);
-  --ps-logo-img: url("jondivinetest-logo-1epas8i.png");
+  --ps-ring-track: #ece6ef;
+  --ps-panel-shadow: 0 1px 2px rgba(16,24,40,0.05), 0 10px 28px -8px rgba(16,24,40,0.1);
+  --ps-logo-img: url("jondivinetest-logo-sg1jk0.png");
   --ps-logo-print: url("jondivinetest-logo-ibwob2.png");
 }
 
@@ -57,11 +57,11 @@
 html { background: var(--ps-page) !important; }
 body.djep-body, body.mobile-hack, body {
   margin: 0;
-  background: radial-gradient(1100px 520px at 50% -8%, rgba(171,41,242,0.22), rgba(171,41,242,0) 70%) no-repeat, var(--ps-page) !important;
+  background: var(--ps-page) !important;
   background-attachment: scroll !important;
   color: var(--ps-text) !important;
   font-family: var(--ps-font) !important;
-  font-size: 16.1px;
+  font-size: 15.2px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -77,12 +77,9 @@ img { max-width: 100%; height: auto; }
 a { color: var(--ps-accent-text); text-decoration: none; transition: color .2s var(--ps-ease), background-color .2s var(--ps-ease), border-color .2s var(--ps-ease), box-shadow .2s var(--ps-ease), transform .2s var(--ps-ease); }
 #djep-content a:not([class*="button"]):hover { text-decoration: underline; text-underline-offset: 3px; }
 #djep-content a:not([class*="button"]):not(.btn), .ps-wp a, .ps-music a { overflow-wrap: anywhere; }
-::selection { background: rgba(171,41,242,0.3); }
-:focus-visible { outline: 3px solid rgba(171,41,242,0.55) !important; outline-offset: 2px; }
+::selection { background: rgba(113,52,137,0.3); }
+:focus-visible { outline: 3px solid rgba(113,52,137,0.55) !important; outline-offset: 2px; }
 hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
-/* Dark theme: black text that DJEP writes inline would be invisible, so it follows the theme instead. */
-#djep-content font[color], #djep-content [style*="color: #000000"], #djep-content [style*="color:#000000"], #djep-content [style*="color: rgb(0, 0, 0)"], #djep-content [style*="color: black"], #djep-content [style*="color:black"] { color: inherit !important; }
-#djep-content [bgcolor="#FFFFFF"], #djep-content [bgcolor="#ffffff"], #djep-content [bgcolor="white"], #djep-content [style*="background-color: #ffffff"], #djep-content [style*="background-color: rgb(255, 255, 255)"], #djep-content [style*="background-color:#ffffff"] { background-color: transparent !important; }
 
 /* ---------- 2. Layout (DJEP's own column classes) ---------- */
 #djep-content { display: flow-root; max-width: 1200px; margin: 0 auto !important; padding: 28px 24px 56px !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
@@ -155,7 +152,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   box-shadow: var(--ps-shadow);
   padding: 36px 32px !important;
   text-align: center;
-  background: #28043b !important;
+  background: #ffffff !important;
   --ps-logo-h: min(160px, 18vw);
   --ps-logo-pos: center 30px;
   background: var(--ps-logo-img) var(--ps-logo-pos) / auto var(--ps-logo-h) no-repeat, var(--ps-header-bg, var(--ps-hero-bg)) !important;
@@ -186,8 +183,8 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   z-index: 1;
   max-width: 820px;
   font-family: var(--ps-font-heading);
-  font-weight: 800;
-  font-size: clamp(26px, 3.4vw, 49px);
+  font-weight: 500;
+  font-size: clamp(26px, 3.4vw, 46px);
   line-height: 1.08;
   letter-spacing: -.02em;
   
@@ -200,11 +197,15 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   position: relative;
   z-index: 1;
   max-width: 640px;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.5;
   opacity: .88;
   white-space: pre-line;
 }
+/* Big hero on the Home page, a slimmer header everywhere else. */
+/* With a logo, inner pages get a compact branded bar: a smaller logo, no headline. */
+body:not(:has(.djep-welcometextbox)) #djep-header { --ps-logo-h: min(72px, 16vw); --ps-logo-pos: center center; min-height: calc(var(--ps-logo-h) + 48px); padding: 24px !important; }
+body:not(:has(.djep-welcometextbox)) #djep-header::before, body:not(:has(.djep-welcometextbox)) #djep-header::after { display: none; }
 
 /* ---------- 4. Menu ---------- */
 #djep-navbar {
@@ -212,10 +213,10 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   z-index: 40;
   margin: 0 !important;
   padding: 0 !important;
-  background: #28043b !important;
+  background: #ffffff !important;
   
   border: 0 !important;
-  border-bottom: 1px solid #412150 !important;
+  border-bottom: 1px solid #e8e1ec !important;
   box-shadow: none !important;
   width: auto !important;
   max-width: none !important;
@@ -243,9 +244,9 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   border-radius: var(--ps-button-radius);
   background: transparent !important;
   border: 0 !important;
-  color: #bdb1bc !important;
+  color: #774c8f !important;
   font-family: var(--ps-font) !important;
-  font-size: 15px !important;
+  font-size: 14.1px !important;
   font-weight: 600 !important;
   letter-spacing: .01em;
   text-decoration: none !important;
@@ -254,15 +255,15 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   height: auto !important;
   line-height: 1.2 !important;
 }
-#djep-navigation li a:hover { color: #f7f4ee !important; background: rgba(247,244,238,0.09) !important; }
+#djep-navigation li a:hover { color: #420663 !important; background: rgba(66,6,99,0.09) !important; }
 #djep-navigation li.selected a, #djep-navigation li a.selected { color: #ffffff !important; background: var(--ps-accent) !important; }
-#djep-navbar-mobile { background: #28043b !important; color: #f7f4ee !important; border: 0 !important; }
-#djep-navbar-mobile a { color: #f7f4ee !important; font-family: var(--ps-font) !important; }
+#djep-navbar-mobile { background: #ffffff !important; color: #420663 !important; border: 0 !important; }
+#djep-navbar-mobile a { color: #420663 !important; font-family: var(--ps-font) !important; }
 
 /* ---------- 5. Headings & text ---------- */
 .djep-h1, .djep-h2, .djep-h3, #djep-content h1, #djep-content h2, #djep-content h3:not(.ui-accordion-header), #djep-content h4:not(.ui-accordion-header), .ui-dialog-title {
   font-family: var(--ps-font-heading) !important;
-  font-weight: 800 !important;
+  font-weight: 500 !important;
   color: var(--ps-text) !important;
   letter-spacing: -.015em;
   
@@ -270,12 +271,14 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   background: none !important;
   border: 0 !important;
 }
-.djep-h1, #djep-content h1 { font-size: 36px !important; margin: 4px 0 18px !important; }
-.djep-h2, #djep-content h2 { font-size: 28px !important; margin: 4px 0 16px !important; padding: 0 !important; }
-.djep-h3, #djep-content h3:not(.ui-accordion-header) { font-size: 20px !important; margin: 0 0 10px !important; }
+.djep-h1, #djep-content h1 { font-size: 34px !important; margin: 4px 0 18px !important; }
+.djep-h2, #djep-content h2 { font-size: 26px !important; margin: 4px 0 16px !important; padding: 0 !important; }
+.djep-h3, #djep-content h3:not(.ui-accordion-header) { font-size: 19px !important; margin: 0 0 10px !important; }
 /* Page titles often hold a DJEP button ("Planning Options", "Event Details"): title left, button beside it. */
 .djep-h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-
+.djep-h1::after, .djep-h2::after { content: ""; display: block; width: 56px; height: 4px; margin-top: 12px; border-radius: 4px; background: var(--ps-button-bg); }
+.djep-h2::after { flex-basis: 100%; max-width: 56px; order: 9; margin-top: 2px; }
+.djep-h1[style*="center"]::after { margin-left: auto; margin-right: auto; }
 .djep-h1 a, .djep-h3 a { margin-left: 10px; vertical-align: middle; }
 #djep-content small, .djep-subtitle, .questiondescription, .djep-playlistlimits { color: var(--ps-muted) !important; }
 
@@ -311,8 +314,8 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   border-radius: var(--ps-radius-sm) !important;
   color: var(--ps-text) !important;
   font-family: var(--ps-font-heading) !important;
-  font-weight: 800 !important;
-  font-size: 17px !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
   letter-spacing: 0;
   
   height: auto !important;
@@ -338,7 +341,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
 [id="djep-countdownclock"] .countdownclock { display: inline-block; max-width: 100%; }
 /* Countdown turned off in Portal Studio: DJEP's countdown clock box is left out of the Home page. */
 [id="djep-countdownclock"], #djep-content .countdownclock, .ps-wp-count { display: none !important; }
-:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])):hover { border-color: rgba(171,41,242,0.28) !important;  }
+:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])):hover { border-color: rgba(113,52,137,0.28) !important;  }
 /* Event cards on the Home / Events page */
 .djep-singleeventdiv {
   background: var(--ps-card-2) !important;
@@ -348,7 +351,7 @@ hr { border: 0; border-top: 1px solid var(--ps-line); margin: 18px 0; }
   margin-bottom: 12px !important;
   transition: transform .25s var(--ps-ease), box-shadow .25s var(--ps-ease), border-color .25s var(--ps-ease);
 }
-.djep-singleeventdiv:hover { transform: translateY(-3px); box-shadow: var(--ps-shadow-hover) !important; border-color: rgba(171,41,242,0.4) !important; }
+.djep-singleeventdiv:hover { transform: translateY(-3px); box-shadow: var(--ps-shadow-hover) !important; border-color: rgba(113,52,137,0.4) !important; }
 
 .calendar { display: inline-block; min-width: 76px; overflow: hidden; text-align: center; background: var(--ps-card) !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) !important; box-shadow: var(--ps-shadow); }
 .calendar .month { display: block; padding: 5px 8px; background: var(--ps-accent) !important; color: var(--ps-on-accent) !important; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
@@ -387,12 +390,12 @@ legend.djep-servicedetailslegend, .djep-servicedetailsbox legend { float: none; 
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:first-child { border-left: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) 0 0 var(--ps-radius-sm); }
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:last-child { border-right: 1px solid var(--ps-line) !important; border-radius: 0 var(--ps-radius-sm) var(--ps-radius-sm) 0; text-align: right; }
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:only-child { border-radius: var(--ps-radius-sm); }
-:is(.djep-documentsbox, .djep-relatedfilesbox) tr:hover > td { border-color: rgba(171,41,242,0.5) !important; background: var(--ps-accent-soft) !important; }
+:is(.djep-documentsbox, .djep-relatedfilesbox) tr:hover > td { border-color: rgba(113,52,137,0.5) !important; background: var(--ps-accent-soft) !important; }
 :is(.djep-documentsbox, .djep-relatedfilesbox) tr > td:first-child::before { content: "DOC"; display: inline-grid; place-items: center; width: 38px; height: 30px; margin-right: 12px; border-radius: 8px; background: var(--ps-accent-soft); color: var(--ps-accent-soft-text); font-size: 10px; font-weight: 800; letter-spacing: .06em; vertical-align: middle; }
 .djep-relatedfilesbox tr > td:first-child::before { content: "FILE"; }
 .djep-relatedfilesbox a:not([class*="button"]) { font-weight: 700; color: var(--ps-text) !important; }
-.djep-relatedfilesbox a[href*=".pdf" i]::before { content: "PDF \2022 "; color: #ff8a8d; font-size: 11px; font-weight: 800; }
-.djep-esigned { display: inline-flex !important; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: rgba(61,220,132,0.15) !important; color: var(--ps-success) !important; font-size: 12px !important; font-weight: 700 !important; white-space: nowrap; }
+.djep-relatedfilesbox a[href*=".pdf" i]::before { content: "PDF \2022 "; color: #c62a2f; font-size: 11px; font-weight: 800; }
+.djep-esigned { display: inline-flex !important; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: rgba(31,138,82,0.15) !important; color: var(--ps-success) !important; font-size: 12px !important; font-weight: 700 !important; white-space: nowrap; }
 .djep-esigned::before { content: "\2713"; }
 .djep-actionbuttonparagraph { margin: 14px 0 0 !important; }
 
@@ -415,7 +418,7 @@ legend.djep-servicedetailslegend, .djep-servicedetailsbox legend { float: none; 
   background: transparent !important;
   color: var(--ps-text) !important;
 }
-.djep-odd td { background: rgba(247,244,238,0.025) !important; }
+.djep-odd td { background: rgba(66,6,99,0.018) !important; }
 .djep-tablehover:hover td, .djep-tablehover1:hover td, .djep-tablehover2:hover td, .djep-cursorpointer:hover td, [id$="_music_results"] tr:hover td, [id^="artist_draggable_"]:hover td, [id^="song_draggable_"]:hover td, [id^="genre_draggable_"]:hover td, [id^="most_requested_draggable_"]:hover td, [id^="special_song_idea_draggable_"]:hover td {
   background: var(--ps-accent-soft) !important;
   color: var(--ps-text) !important;
@@ -438,7 +441,7 @@ legend.djep-servicedetailslegend, .djep-servicedetailsbox legend { float: none; 
   border-radius: var(--ps-radius-sm) !important;
   box-shadow: none !important;
   font-family: var(--ps-font) !important;
-  font-size: 16.1px !important;
+  font-size: 15.2px !important;
   line-height: 1.4;
   transition: border-color .2s var(--ps-ease), box-shadow .2s var(--ps-ease), background-color .2s var(--ps-ease);
   -webkit-appearance: none;
@@ -446,18 +449,18 @@ legend.djep-servicedetailslegend, .djep-servicedetailsbox legend { float: none; 
 }
 #djep-content select, .ui-dialog select {
   padding-right: 38px !important;
-  background-image: linear-gradient(45deg, transparent 50%, #ad92b6 50%), linear-gradient(135deg, #ad92b6 50%, transparent 50%) !important;
+  background-image: linear-gradient(45deg, transparent 50%, #8a669f 50%), linear-gradient(135deg, #8a669f 50%, transparent 50%) !important;
   background-position: calc(100% - 19px) 50%, calc(100% - 14px) 50% !important;
   background-size: 5px 5px, 5px 5px !important;
   background-repeat: no-repeat !important;
 }
 #djep-content select[multiple], #djep-content select[size] { background-image: none !important; padding-right: 14px !important; }
 #djep-content textarea { min-height: 96px; resize: vertical; }
-#djep-content input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, #djep-content select:hover, #djep-content textarea:hover, .ui-dialog input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, .ui-dialog select:hover, .ui-dialog textarea:hover { border-color: #8a7293 !important; }
+#djep-content input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, #djep-content select:hover, #djep-content textarea:hover, .ui-dialog input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):hover, .ui-dialog select:hover, .ui-dialog textarea:hover { border-color: #b39bc1 !important; }
 #djep-content input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):focus, #djep-content select:focus, #djep-content textarea:focus, .ui-dialog input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]):focus, .ui-dialog select:focus, .ui-dialog textarea:focus {
   outline: none !important;
   border-color: var(--ps-accent) !important;
-  box-shadow: 0 0 0 4px rgba(171,41,242,0.18) !important;
+  box-shadow: 0 0 0 4px rgba(113,52,137,0.18) !important;
 }
 #djep-content ::placeholder { color: var(--ps-muted); opacity: .75; }
 #djep-content input[type="checkbox"], #djep-content input[type="radio"] { accent-color: var(--ps-accent); width: 18px; height: 18px; margin: 3px 6px 3px 2px; vertical-align: middle; cursor: pointer; }
@@ -478,14 +481,14 @@ table[id^="planning_form_table_"] input:not([type="checkbox"]):not([type="radio"
 table[id^="planning_form_table_"] select { max-width: 100% !important; }
 /* Section headers: DJEP paints them with the account's own color (often forced inline). A theme-colored layer
    goes on top of that color and under the text, so headers match the theme whatever color was chosen. */
-.djep-form-sections, .djep-sectiontitle { position: relative; z-index: 0; padding: 12px 16px !important; color: var(--ps-accent-soft-text) !important; font-family: var(--ps-font-heading) !important; font-weight: 800 !important; font-size: 18px !important; letter-spacing: .01em;  border: 0 !important; background-clip: content-box !important; }
+.djep-form-sections, .djep-sectiontitle { position: relative; z-index: 0; padding: 12px 16px !important; color: var(--ps-accent-soft-text) !important; font-family: var(--ps-font-heading) !important; font-weight: 500 !important; font-size: 17px !important; letter-spacing: .01em;  border: 0 !important; background-clip: content-box !important; }
 .djep-form-sections::before, .djep-sectiontitle::before { content: ""; position: absolute; inset: 4px 0; z-index: -1; border-radius: var(--ps-radius-sm); background: var(--ps-accent-soft); border-left: 4px solid var(--ps-accent); }
 #autosavecountdowntimer, #toggleautosave { color: var(--ps-muted) !important; font-size: 13px; }
 #djep-content :is(.djep-form-sections, .djep-sectiontitle) { padding: 11px 16px 11px 18px !important; }
 /* A row of header cells (timeline columns) reads as one bar. */
 td.djep-sectiontitle + td.djep-sectiontitle::before { left: -2px; border-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
 td.djep-sectiontitle:has(+ td.djep-sectiontitle)::before { right: -2px; border-top-right-radius: 0; border-bottom-right-radius: 0; }
-tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { font-size: 16px !important; }
+tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { font-size: 15px !important; }
 #djep-content [style*="font-size:9px"], #djep-content [style*="font-size: 9px"], #djep-content [style*="font-size:10px"], #djep-content [style*="font-size: 10px"] { font-size: 12px !important; }
 
 /* ---------- 9. Buttons ---------- */
@@ -518,9 +521,9 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   color: var(--ps-on-accent) !important;
   border: 0 !important;
   border-radius: var(--ps-button-radius) !important;
-  box-shadow: 0 6px 16px -10px rgba(171,41,242,0.8) !important;
+  box-shadow: 0 6px 16px -10px rgba(113,52,137,0.8) !important;
   font-family: var(--ps-font) !important;
-  font-size: 15.5px !important;
+  font-size: 14.6px !important;
   font-weight: 700 !important;
   letter-spacing: .01em;
   line-height: 1.2 !important;
@@ -559,7 +562,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
 #djep-content input[type="submit"]:hover,
 #djep-content input[type="button"]:hover,
 #djep-content button[type="submit"]:hover,
-.ui-dialog .ui-dialog-buttonpane button:hover { color: var(--ps-on-accent) !important; text-decoration: none !important; background-position: -60% 0, 0 0 !important; transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(171,41,242,0.75) !important; }
+.ui-dialog .ui-dialog-buttonpane button:hover { color: var(--ps-on-accent) !important; text-decoration: none !important; background-position: -60% 0, 0 0 !important; box-shadow: 0 0 0 3px rgba(113,52,137,0.22), 0 8px 30px rgba(113,52,137,0.55) !important; }
 .djep-actionbutton:active,
 .djep-widgetaction:active,
 .djep-paymentbutton:active,
@@ -606,7 +609,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   padding: 8px 18px !important;
   background: transparent !important;
   color: var(--ps-text) !important;
-  border: 1.5px solid #9371a2 !important;
+  border: 1.5px solid #b69fc3 !important;
   border-radius: var(--ps-button-radius) !important;
   font-weight: 600 !important;
   text-decoration: none !important;
@@ -624,7 +627,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   margin: 8px !important;
   padding: 14px 28px !important;
   background: #ffffff !important;
-  border: 1px solid #a488b3 !important;
+  border: 1px solid #f1edf4 !important;
   border-radius: var(--ps-radius) !important;
   box-shadow: var(--ps-shadow) !important;
   text-decoration: none !important;
@@ -634,7 +637,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
 .djep-paywithbutton:hover { transform: translateY(-2px); border-color: var(--ps-accent) !important; box-shadow: var(--ps-shadow-hover) !important; background: #ffffff !important; }
 .djep-paywithbutton img { max-height: 40px; width: auto; }
 .djep-readviewbutton:hover,
-.djep-clipboardbutton:hover { border-color: var(--ps-accent) !important; color: var(--ps-accent-text) !important; background: var(--ps-accent-soft) !important; transform: translateY(-2px); }
+.djep-clipboardbutton:hover { border-color: var(--ps-accent) !important; color: var(--ps-accent-text) !important; background: var(--ps-accent-soft) !important;  }
 .djep-artistsongbuttons,
 .djep-artistsongbuttonswide,
 .djep-toplistbuttons,
@@ -662,7 +665,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
 .djep-artistsongbuttonswide:hover,
 .djep-toplistbuttons:hover,
 .djep-toplistbuttons2:hover,
-.djep-toplistbuttons3:hover { background: var(--ps-accent-soft) !important; border-color: rgba(171,41,242,0.5) !important; color: var(--ps-accent-soft-text, var(--ps-text)) !important; transform: translateY(-1px); }
+.djep-toplistbuttons3:hover { background: var(--ps-accent-soft) !important; border-color: rgba(113,52,137,0.5) !important; color: var(--ps-accent-soft-text, var(--ps-text)) !important; transform: translateY(-1px); }
 .djep-toplistbuttons2_active,
 .djep-toplistbuttons3_active { background: var(--ps-accent) !important; color: var(--ps-on-accent) !important; border-color: var(--ps-accent) !important; }
 
@@ -671,8 +674,6 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
 .ui-widget-content { background: var(--ps-card) !important; color: var(--ps-text) !important; border-color: var(--ps-line) !important; }
 .ui-widget-content a { color: var(--ps-accent-text); }
 .ui-widget-header { background: transparent !important; border: 0 !important; color: var(--ps-text) !important; }
-/* jQuery UI's small arrow and close icons are dark grey pictures; turn them light on a dark theme. */
-.ui-icon { filter: invert(1) brightness(1.25); }
 .ui-tabs { padding: 0 !important; border: 0 !important; background: transparent !important; }
 .ui-tabs .ui-tabs-nav { display: flex !important; flex-wrap: wrap; gap: 6px; margin: 0 0 14px !important; padding: 0 !important; background: transparent !important; border: 0 !important; }
 .ui-tabs .ui-tabs-nav::after { display: none; }
@@ -692,7 +693,7 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   font-size: 14px !important;
   text-decoration: none !important;
 }
-.ui-tabs .ui-tabs-nav li a:hover { color: var(--ps-text) !important; border-color: rgba(171,41,242,0.45) !important; }
+.ui-tabs .ui-tabs-nav li a:hover { color: var(--ps-text) !important; border-color: rgba(113,52,137,0.45) !important; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-active a, .ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
   background: var(--ps-accent) !important;
   color: var(--ps-on-accent) !important;
@@ -709,8 +710,8 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
   font-weight: 700 !important;
   transition: background .2s var(--ps-ease), border-color .2s var(--ps-ease);
 }
-.ui-accordion .ui-accordion-header:hover { border-color: rgba(171,41,242,0.45) !important; }
-.ui-accordion .ui-accordion-header-active, .ui-accordion .ui-state-active { background: var(--ps-accent-soft) !important; border-color: rgba(171,41,242,0.5) !important; color: var(--ps-text) !important; border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; }
+.ui-accordion .ui-accordion-header:hover { border-color: rgba(113,52,137,0.45) !important; }
+.ui-accordion .ui-accordion-header-active, .ui-accordion .ui-state-active { background: var(--ps-accent-soft) !important; border-color: rgba(113,52,137,0.5) !important; color: var(--ps-text) !important; border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; }
 .ui-accordion .ui-accordion-content { padding: 12px 16px !important; background: var(--ps-card) !important; border: 1px solid var(--ps-line) !important; border-top: 0 !important; border-radius: 0 0 var(--ps-radius-sm) var(--ps-radius-sm) !important; }
 .ui-state-default, .ui-widget-content .ui-state-default { background-image: none !important; }
 .ui-dialog { padding: 0 !important; background: var(--ps-card) !important; color: var(--ps-text) !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius) !important; box-shadow: 0 30px 80px -20px rgba(0,0,0,.55) !important; overflow: hidden; }
@@ -722,32 +723,41 @@ tr:has(> td.djep-sectiontitle + td.djep-sectiontitle) > td.djep-sectiontitle { f
 #alert_message_div, #alert_message2_div, .djep-titlebarconfirm, .djep-titlebarmusicconfirm, .djep-titlebarnotices, #password_save_confirmation {
   padding: 12px 16px !important;
   margin: 0 0 16px !important;
-  background: rgba(61,220,132,0.14) !important;
+  background: rgba(31,138,82,0.1) !important;
   color: var(--ps-text) !important;
-  border: 1px solid rgba(61,220,132,0.45) !important;
+  border: 1px solid rgba(31,138,82,0.45) !important;
   border-left: 4px solid var(--ps-success) !important;
   border-radius: var(--ps-radius-sm) !important;
   font-weight: 600;
 }
-#warning_div, #client_visible_notes { padding: 12px 16px !important; background: rgba(245,165,36,0.14) !important; color: var(--ps-text) !important; border: 1px solid rgba(245,165,36,0.5) !important; border-radius: var(--ps-radius-sm) !important; }
+#warning_div, #client_visible_notes { padding: 12px 16px !important; background: rgba(245,165,36,0.12) !important; color: var(--ps-text) !important; border: 1px solid rgba(245,165,36,0.5) !important; border-radius: var(--ps-radius-sm) !important; }
 
 /* ---------- 11. Music ---------- */
 table.djep-selectmusictable { width: 100% !important; border-collapse: separate !important; border-spacing: 0; }
 table.djep-selectmusictable > tbody > tr > td:first-child { width: 62% !important; }
 table.djep-selectmusictable > tbody > tr > td { vertical-align: top; padding: 0 10px !important; border: 0 !important; }
-.djep-requestonlytitle, .djep-requestonlytitle p { display: block; margin: 0 0 8px !important; font-family: var(--ps-font-heading); font-weight: 800; font-size: 19px; color: var(--ps-text) !important; }
+.djep-requestonlytitle, .djep-requestonlytitle p { display: block; margin: 0 0 8px !important; font-family: var(--ps-font-heading); font-weight: 500; font-size: 18px; color: var(--ps-text) !important; }
 #requests_accordion { width: 100% !important; }
 [id^="request_table_div_"] { border-radius: 0 0 var(--ps-radius-sm) var(--ps-radius-sm); }
 .djep-playlist-listing td, tr[id*="song_row_for_songid"] > td { padding: 8px 10px !important; border-bottom: 1px solid var(--ps-line) !important; font-size: 14px !important; }
 /* DJEP's grey "Instructions" note boxes (written inline) follow the theme. */
 #djep-content div[style*="E3E3E3"], #djep-content div[style*="e3e3e3"], .djep-timeline_instructions {
   width: auto !important; max-width: 440px; height: auto !important; margin: 18px auto !important; padding: 12px 16px !important;
-  background: var(--ps-card-2) !important; border: 1px dashed #855e97 !important; border-radius: var(--ps-radius-sm) !important;
+  background: var(--ps-card-2) !important; border: 1px dashed #c7b5d1 !important; border-radius: var(--ps-radius-sm) !important;
   color: var(--ps-muted) !important; font-size: 13px !important; line-height: 1.5; text-align: left;
 }
 #djep-content div[style*="E3E3E3"] strong { color: var(--ps-text); }
 .djep-playlisttitle { color: var(--ps-text) !important; }
 .djep-playlistlimits { margin-left: 8px; font-weight: 500; }
+/* DJEP's music search (artist list with the songs under each artist, song results). Its own built-in colors
+   (light grey rows, a lavender open row, grey labels) are replaced by the design's, so names and titles always read. */
+.djep-artist-row, .djep-song-result { background-color: transparent !important; border-bottom-color: var(--ps-line) !important; color: var(--ps-text) !important; }
+.djep-artist-row:hover, .djep-song-result:hover, .djep-artist-row.djep-expanded { background-color: var(--ps-accent-soft) !important; }
+:is(.djep-artist-name, .djep-song-result-title, .djep-song-title) { color: var(--ps-text) !important; }
+:is(.djep-artist-genres, .djep-song-count, .djep-expand-icon, .djep-song-result-sub) { color: #71448a !important; }
+.djep-songs-container { background: var(--ps-card-2) !important; border-bottom-color: var(--ps-line) !important; }
+.djep-songs-table td { color: var(--ps-text) !important; border-bottom-color: var(--ps-line) !important; background: transparent !important; }
+.djep-songs-table tr:hover td { background: var(--ps-accent-soft) !important; }
 /* Long links (a pasted Spotify or Apple Music address in a request's comments) wrap instead of breaking the box. */
 :is(.djep-viewrequestboxes, [id^="request_table_"], .djep-playlist-listing, [id$="_table"]) td:last-child { overflow-wrap: anywhere; }
 .djep-emailmessagebox iframe { display: block; width: 100% !important; height: 70vh !important; min-height: 420px; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm); background: #ffffff; }
@@ -770,7 +780,7 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 .djep-paginatebutton:hover { border-color: var(--ps-accent); color: var(--ps-accent) !important; }
 .djep-activepaginatebutton { background: var(--ps-button-bg); border-color: transparent; color: var(--ps-on-accent) !important; }
 /* Spotify / Apple Music add-on */
-.ps-music { margin: 0 0 16px; padding: 16px; border-radius: var(--ps-radius-sm); background: var(--ps-accent-soft); border: 1px solid rgba(171,41,242,0.35); }
+.ps-music { margin: 0 0 16px; padding: 16px; border-radius: var(--ps-radius-sm); background: var(--ps-accent-soft); border: 1px solid rgba(113,52,137,0.35); }
 .ps-music-title { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-weight: 700; color: var(--ps-text); }
 .ps-music-sub { margin: 0 0 12px; font-size: 13px; color: var(--ps-muted); }
 .ps-music-row { display: flex; gap: 8px; }
@@ -788,7 +798,7 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 .ps-playlists-title { margin: 0 0 8px; font-weight: 700; color: var(--ps-text); }
 .ps-playlists-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .ps-playlist { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: var(--ps-button-radius); background: var(--ps-card-2); border: 1px solid var(--ps-line); color: var(--ps-text) !important; font-weight: 600; font-size: 13.5px; text-decoration: none !important; transition: transform .2s var(--ps-ease), border-color .2s var(--ps-ease), box-shadow .2s var(--ps-ease); }
-.ps-playlist:hover { transform: translateY(-2px); border-color: rgba(171,41,242,0.6); box-shadow: 0 10px 22px -12px rgba(171,41,242,0.8); }
+.ps-playlist:hover { transform: translateY(-2px); border-color: rgba(113,52,137,0.6); box-shadow: 0 10px 22px -12px rgba(113,52,137,0.8); }
 
 /* ---------- 11b. Plan My Event, planning tools, timeline & contact ---------- */
 /* Manage Music: DJEP's own themes draw these three links as pictures. With a custom theme they are empty,
@@ -796,11 +806,11 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-guestrequestsimage, #djep-specialsongsimage) { padding: 4px !important; border: 0 !important; }
 :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-guestrequestsimage, #djep-specialsongsimage) a {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; margin: 4px; padding: 10px 20px;
-  border-radius: var(--ps-button-radius); border: 1.5px solid #9371a2; background: var(--ps-card);
+  border-radius: var(--ps-button-radius); border: 1.5px solid #b69fc3; background: var(--ps-card);
   color: var(--ps-text) !important; font-weight: 700; font-size: 14.5px; white-space: nowrap; text-decoration: none !important;
   transition: transform .2s var(--ps-ease), border-color .2s var(--ps-ease), background .2s var(--ps-ease), box-shadow .2s var(--ps-ease);
 }
-#djep-addsongimage a { background: var(--ps-button-bg); border-color: transparent; color: var(--ps-on-accent) !important; box-shadow: 0 6px 16px -10px rgba(171,41,242,0.8); }
+#djep-addsongimage a { background: var(--ps-button-bg); border-color: transparent; color: var(--ps-on-accent) !important; box-shadow: 0 6px 16px -10px rgba(113,52,137,0.8); }
 :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-guestrequestsimage, #djep-specialsongsimage) a:hover { transform: translateY(-2px); border-color: var(--ps-accent); }
 #djep-addsongimage a:empty::before { content: "\266B  Browse Music"; white-space: pre; }
 #djep-musicrequestsimage a:empty::before { content: "Song Requests"; }
@@ -856,23 +866,20 @@ li.addyourownlink a::after { content: "♫"; font-size: 13px; opacity: .85; }
 #djep-content > :nth-child(7) { animation-delay: 0.36s; }
 
 /* ---------- 13b. Wow effects ---------- */
-/* Moving glow: the blurred photo behind the page drifts slowly. */
-body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-change: transform; }
-@keyframes ps-drift { from { transform: scale(1.04) translate3d(-1.5%, -1%, 0); } to { transform: scale(1.16) translate3d(1.5%, 1.2%, 0); } }
 /* Living hero (the add-on adds these layers): the photo zooms in slowly and an equalizer pulses along the bottom. */
 .ps-hero-media, .ps-hero-eq, .ps-hero-logo { position: absolute; pointer-events: none; }
 .ps-hero-media { inset: 0; z-index: 0; background: var(--ps-header-bg, var(--ps-hero-bg)); transform-origin: 62% 40%; animation: ps-kenburns 26s ease-in-out infinite alternate; will-change: transform; }
 #djep-header > .ps-hero-logo { inset: 0; z-index: 1; background: var(--ps-logo-img) var(--ps-logo-pos) / auto var(--ps-logo-h) no-repeat; }
 .ps-hero-eq { left: 0; right: 0; bottom: 0; z-index: 0; height: 30px; display: flex; align-items: flex-end; gap: 4px; padding: 0 3%; opacity: 0.38; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
-.ps-hero-eq i { flex: 1 1 0; height: 100%; border-radius: 2px 2px 0 0; background: linear-gradient(to top, #ab29f2 0%, rgba(192,141,212,0.9) 60%, rgba(192,141,212,0.35) 100%); transform-origin: 50% 100%; transform: scaleY(.15); animation: ps-eq var(--ps-eq-d, 1s) ease-in-out var(--ps-eq-dl, 0s) infinite alternate; will-change: transform; }
+.ps-hero-eq i { flex: 1 1 0; height: 100%; border-radius: 2px 2px 0 0; background: linear-gradient(to top, #713489 0%, rgba(132,93,154,0.9) 60%, rgba(132,93,154,0.35) 100%); transform-origin: 50% 100%; transform: scaleY(.15); animation: ps-eq var(--ps-eq-d, 1s) ease-in-out var(--ps-eq-dl, 0s) infinite alternate; will-change: transform; }
 #djep-content > .ps-banner { animation: none; }
 @keyframes ps-eq { from { transform: scaleY(.1); } to { transform: scaleY(var(--ps-eq-h, 1)); } }
 @keyframes ps-kenburns { from { transform: scale(1); } to { transform: scale(1.12) translate3d(-1.2%, -.8%, 0); } }
-/* Glass panels: a soft sheen, a bright top edge and a deeper shadow, slightly see-through over the glow behind. */
-:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])), .ps-wp .ps-wp-card { background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 42%), rgba(77,21,108,0.74) !important; border-color: rgba(255,255,255,.1) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.11), 0 1px 2px rgba(0,0,0,0.3), 0 22px 46px -26px rgba(0,0,0,0.85) !important; }
+/* Glass panels: a soft sheen, a bright top edge and a deeper shadow. */
+:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])), .ps-wp .ps-wp-card { background: linear-gradient(160deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 42%), #ffffff !important; border-color: rgba(66,6,99,0.08) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 2px rgba(16,24,40,0.05), 0 22px 46px -26px rgba(16,24,40,0.3) !important; }
 :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])) :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])) { background: var(--ps-card-2) !important; box-shadow: none !important; }
 /* Spotlight (the add-on follows the mouse): a soft light follows the pointer across a panel. */
-:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"]), .ps-wp .ps-wp-card).ps-spot { background-image: radial-gradient(460px circle at var(--ps-mx, 50%) var(--ps-my, 0%), rgba(196,105,246,0.24), rgba(171,41,242,0) 65%), linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 42%) !important; }
+:is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"]), .ps-wp .ps-wp-card).ps-spot { background-image: radial-gradient(460px circle at var(--ps-mx, 50%) var(--ps-my, 0%), rgba(113,52,137,0.12), rgba(113,52,137,0) 65%), linear-gradient(160deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 42%) !important; }
 /* Scroll-in (the add-on marks what's still below the screen): panels rise into place as they come into view,
    and planning-form section bars sweep in from the left. Text is never hidden without the add-on. */
 .ps-rv:not(#ps-a):not(#ps-b) { opacity: 0; transform: translate3d(0, 28px, 0) scale(.985); animation: none; }
@@ -881,7 +888,7 @@ body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-chan
 :is(.djep-form-sections, .djep-sectiontitle).ps-wipe.ps-wipe-in::before { transform: none; transition: transform .9s var(--ps-ease); }
 /* Shine: the client's name in the welcome greeting carries a slow-moving gradient, and the welcome page's
    main button catches a sweep of light every few seconds (other buttons shine when hovered). */
-.ps-wp .ps-wp-title b { background: linear-gradient(100deg, #c976f7 0%, #e7c1fb 50%, #c976f7 100%) 0 0 / 200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: ps-shimmer 7s linear infinite; }
+.ps-wp .ps-wp-title b { background: linear-gradient(100deg, #713489 0%, #420663 50%, #713489 100%) 0 0 / 200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: ps-shimmer 7s linear infinite; }
 @keyframes ps-shimmer { to { background-position: -200% 0; } }
 .ps-wp .ps-wp-actions .ps-wp-btn { background-image: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.34) 47%, rgba(255,255,255,.1) 53%, transparent 68%), var(--wp-btn); background-size: 260% 100%, 100% 100%; background-repeat: no-repeat; background-position: 160% 0, 0 0; animation: ps-sweep 6.5s ease-in-out 1.5s infinite; }
 @keyframes ps-sweep { 0%, 72% { background-position: 160% 0, 0 0; } 100% { background-position: -60% 0, 0 0; } }
@@ -898,7 +905,7 @@ body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-chan
   #djep-header { min-height: 375px; }
 }
 @media (max-width: 767px) {
-  body.djep-body, body { font-size: 16.1px; }
+  body.djep-body, body { font-size: 15.2px; }
   /* Long addresses, emails and links anywhere in the content wrap inside their box instead of breaking the frame. */
   #djep-content { overflow-wrap: break-word; }
   /* ...but short labels in a first column (Comments:, Name, Event Date:) never break mid-word. */
@@ -947,10 +954,10 @@ body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-chan
   .djep-managemusicbox tr { display: flex; flex-wrap: wrap; justify-content: center; }
   .djep-managemusicbox td { display: block; }
   #djep-content { padding: 16px 12px 40px !important; }
-  :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])) { padding: 16px !important; border-radius: 10px !important; }
+  :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])) { padding: 16px !important; border-radius: 16px !important; }
   :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])) > :is(.djep-titlebar, .djep-titlebarsmall, .djep-titlebarsmall_edit):first-child { margin: -16px -16px 16px !important; padding: 12px 16px !important; }
-  .djep-h1, #djep-content h1 { font-size: 29px !important; }
-  .djep-h2, #djep-content h2 { font-size: 24px !important; }
+  .djep-h1, #djep-content h1 { font-size: 27px !important; }
+  .djep-h2, #djep-content h2 { font-size: 22px !important; }
   #djep-content input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]), #djep-content select, #djep-content textarea, .ui-dialog input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="hidden"]):not([type="image"]):not([type="file"]):not([type="color"]):not([type="range"]), .ui-dialog select, .ui-dialog textarea { font-size: 16px !important; width: 100%; }
   table.djep-selectmusictable > tbody > tr > td, table.djep-selectmusictable > tbody > tr > td:first-child { display: block; width: 100% !important; padding: 0 !important; margin-bottom: 18px; }
   .djep-singleeventdiv td { display: block; width: auto !important; text-align: left !important; padding: 4px 0 !important; height: auto !important; }
@@ -1005,28 +1012,28 @@ body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-chan
 
 /* ---------- 14c. DJEP's phone version (served to phones as a separate page layout) ---------- */
 /* Menu bar */
-#djep-navbar-mobile .navbar { background: #28043b !important; background-image: none !important; border: 0 !important; border-bottom: 1px solid #452654 !important; box-shadow: 0 8px 22px -14px rgba(0,0,0,.55) !important; }
-#djep-navbar-mobile .navbar-brand { color: #f7f4ee !important; font-family: var(--ps-font-heading) !important; font-weight: 800 !important; font-size: 15px !important; text-shadow: none !important; }
-#djep-navbar-mobile .navbar-toggle { border: 1px solid #452654 !important; border-radius: 10px !important; background: transparent !important; }
-#djep-navbar-mobile .navbar-toggle .icon-bar { background: #f7f4ee !important; }
-#djep-navbar-mobile .navbar-collapse { border-color: #452654 !important; background: #28043b !important; box-shadow: none !important; max-height: calc(100vh - 52px); }
-#djep-navbar-mobile .nav > li > a { color: #bdb1bc !important; font-family: var(--ps-font) !important; font-weight: 600 !important; text-shadow: none !important; background: transparent !important; }
-#djep-navbar-mobile .nav > li > a:hover, #djep-navbar-mobile .nav > li > a:focus, #djep-navbar-mobile .nav > .open > a { color: #f7f4ee !important; background: rgba(247,244,238,0.08) !important; }
-#djep-navbar-mobile .nav > li.djepm-home > a, #djep-navbar-mobile .caret { color: #f7f4ee !important; }
-#djep-navbar-mobile .dropdown-menu { background: #4d156c !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) !important; box-shadow: none !important; }
+#djep-navbar-mobile .navbar { background: #ffffff !important; background-image: none !important; border: 0 !important; border-bottom: 1px solid #e5dce9 !important; box-shadow: 0 8px 22px -14px rgba(0,0,0,.55) !important; }
+#djep-navbar-mobile .navbar-brand { color: #420663 !important; font-family: var(--ps-font-heading) !important; font-weight: 500 !important; font-size: 15px !important; text-shadow: none !important; }
+#djep-navbar-mobile .navbar-toggle { border: 1px solid #e5dce9 !important; border-radius: 10px !important; background: transparent !important; }
+#djep-navbar-mobile .navbar-toggle .icon-bar { background: #420663 !important; }
+#djep-navbar-mobile .navbar-collapse { border-color: #e5dce9 !important; background: #ffffff !important; box-shadow: none !important; max-height: calc(100vh - 52px); }
+#djep-navbar-mobile .nav > li > a { color: #774c8f !important; font-family: var(--ps-font) !important; font-weight: 600 !important; text-shadow: none !important; background: transparent !important; }
+#djep-navbar-mobile .nav > li > a:hover, #djep-navbar-mobile .nav > li > a:focus, #djep-navbar-mobile .nav > .open > a { color: #420663 !important; background: rgba(66,6,99,0.08) !important; }
+#djep-navbar-mobile .nav > li.djepm-home > a, #djep-navbar-mobile .caret { color: #420663 !important; }
+#djep-navbar-mobile .dropdown-menu { background: #ffffff !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) !important; box-shadow: none !important; }
 #djep-navbar-mobile .dropdown-menu > li > a { color: var(--ps-text) !important; background: transparent !important; white-space: normal !important; }
 #djep-navbar-mobile .dropdown-menu > li > a:hover { color: var(--ps-accent-text) !important; background: var(--ps-accent-soft) !important; }
 /* Bootstrap pieces the phone pages use */
 #djep-content .panel { margin: 0 0 14px !important; background: var(--ps-card-2) !important; border: 1px solid var(--ps-line) !important; border-radius: var(--ps-radius-sm) !important; box-shadow: none !important; color: var(--ps-text) !important; }
 #djep-content .panel-heading { background: transparent !important; border-color: var(--ps-line) !important; color: var(--ps-text) !important; }
 #djep-content .panel-body { padding: 14px !important; }
-#djep-content .panel h4, #djep-content .form-group > h4 { margin: 4px 0 10px !important; font-size: 18px !important; color: var(--ps-text) !important; }
+#djep-content .panel h4, #djep-content .form-group > h4 { margin: 4px 0 10px !important; font-size: 17px !important; color: var(--ps-text) !important; }
 #djep-content .panel .questiontitle, #djep-content .panel label { color: var(--ps-muted) !important; font-weight: 600; }
 #djep-content .panel p { margin: 8px 0 4px !important; }
 #djep-content .width90hack { width: 100% !important; }
 #djep-content .btn { display: inline-flex !important; align-items: center; justify-content: center; min-height: 40px; padding: 8px 18px !important; border-radius: var(--ps-button-radius) !important; font-family: var(--ps-font) !important; font-weight: 700 !important; text-shadow: none !important; box-shadow: none !important; background-image: none !important; }
 #djep-content .btn-primary, #djep-content .btn-success, #djep-content .btn-info { background: var(--ps-button-bg) !important; border: 1px solid transparent !important; color: var(--ps-on-accent) !important; }
-#djep-content .btn-default { background: transparent !important; border: 1.5px solid #9371a2 !important; color: var(--ps-text) !important; }
+#djep-content .btn-default { background: transparent !important; border: 1.5px solid #b69fc3 !important; color: var(--ps-text) !important; }
 #djep-content .btn:hover { filter: brightness(1.06); }
 #djep-content .table-bordered, #djep-content .table-bordered > tbody > tr > :is(td, th), #djep-content .metro-table :is(td, th) { border-color: var(--ps-line) !important; background: transparent !important; }
 #djep-content .table-bordered th { color: var(--ps-muted) !important; font-size: 12px !important; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
@@ -1054,21 +1061,15 @@ body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-chan
 #djep-content .djepm-searchbutton { margin-left: 8px; }
 #djep-content .djepm-toplistbuttons { margin: 3px !important; }
 
-/* ---------- 14b. Layout: Immersive ---------- */
-/* Your hero (photo or brand colors) blurred behind the whole page. */
-html { background: #420663 !important; }
-body.djep-body, body { background: transparent !important; }
-body::before { content: ""; position: fixed; inset: -40px; z-index: -2; background: var(--ps-hero-bg); filter: blur(30px) saturate(1.3); pointer-events: none; }
-body::after { content: ""; position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(66,6,99,0.35) 0%, rgba(66,6,99,0.82) 60%); pointer-events: none; }
-#djep-header { --ps-header-bg: transparent; color: #f7f4ee !important; box-shadow: none !important; margin: 0 auto !important; }
-#djep-header::before, #djep-header::after { text-shadow: 0 2px 26px rgba(66,6,99,0.6); }
-#djep-navbar { position: sticky !important; top: 12px; z-index: 40; width: fit-content !important; max-width: calc(100% - 24px) !important; margin: 0 auto 6px !important; border-radius: 999px !important; background: rgba(40,4,59,0.5) !important; -webkit-backdrop-filter: saturate(1.8) blur(22px); backdrop-filter: saturate(1.8) blur(22px); border: 1px solid rgba(247,244,238,0.14) !important; }
-#djep-navigation { padding: 6px !important; }
-#djep-navigation li a { border-radius: 999px !important; }
-.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"]), .djep-singleeventdiv { background: rgba(77,21,108,0.72) !important; border-color: rgba(247,244,238,0.1) !important; }
-.ps-wp .ps-wp-card { background: rgba(77,21,108,0.72); }
+/* ---------- 14b. Layout: Floating ---------- */
+#djep-header { max-width: 1200px; margin: 18px auto 0 !important; border-radius: calc(var(--ps-radius) * 1.5) !important; box-shadow: var(--ps-shadow); padding-bottom: 66px !important; }
+#djep-navbar { position: sticky !important; top: 14px; z-index: 40; width: fit-content !important; max-width: calc(100% - 32px) !important; margin: -32px auto 6px !important; border-radius: 999px !important; background: rgba(255,255,255,0.82) !important; -webkit-backdrop-filter: saturate(1.8) blur(20px); backdrop-filter: saturate(1.8) blur(20px); border: 1px solid rgba(66,6,99,0.14) !important; box-shadow: 0 18px 44px -18px rgba(0,0,0,.5) !important; }
+#djep-navigation { padding: 6px !important; gap: 2px; }
+#djep-navigation li a { border-radius: 999px !important; min-height: 38px; }
+#djep-content { max-width: 1120px; }
 @media (max-width: 767px) {
-  #djep-navbar { width: auto !important; max-width: none !important; margin: 0 8px 4px !important; overflow: hidden; border-radius: 22px !important; }
+  #djep-header { margin: 10px 10px 0 !important; padding-bottom: 54px !important; }
+  #djep-navbar { top: 8px; max-width: calc(100% - 20px) !important; width: auto !important; margin: -26px 10px 4px !important; overflow: hidden; border-radius: 22px !important; }
 }
 
 /* ---------- 15. Printing (A4 paper) ---------- */
@@ -1085,16 +1086,16 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -1; background: l
   .ps-rv, .ps-wipe::before { opacity: 1 !important; transform: none !important; }
   .ps-wp .ps-wp-title b { background: none !important; -webkit-text-fill-color: currentColor !important; }
   #djep-navbar { position: static !important; }
-  #djep-header { position: static !important; height: auto !important; aspect-ratio: auto !important; max-width: none !important; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; min-height: 0 !important; margin: 0 0 14px !important; padding: 0 0 10px !important; background: none !important; color: #111111 !important; border-radius: 0 !important; box-shadow: none !important; border-bottom: 2.5px solid #ab29f2 !important; }
+  #djep-header { position: static !important; height: auto !important; aspect-ratio: auto !important; max-width: none !important; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; min-height: 0 !important; margin: 0 0 14px !important; padding: 0 0 10px !important; background: none !important; color: #111111 !important; border-radius: 0 !important; box-shadow: none !important; border-bottom: 2.5px solid #713489 !important; }
   #djep-header img { max-height: 52px !important; filter: none !important; }
   #djep-header { min-height: 56px !important; justify-content: flex-end !important; background: var(--ps-logo-print, var(--ps-logo-img)) left center / auto 52px no-repeat !important; }
-  #djep-header::before { content: "Alive Events" !important; display: block !important; order: 2; font-size: 11pt !important; font-weight: 700; color: #ab29f2 !important; text-shadow: none !important; letter-spacing: .04em; max-width: none; }
+  #djep-header::before { content: "Alive Events" !important; display: block !important; order: 2; font-size: 11pt !important; font-weight: 700; color: #713489 !important; text-shadow: none !important; letter-spacing: .04em; max-width: none; }
   #djep-header::after { display: none !important; }
   #djep-content { max-width: none !important; margin: 0 !important; padding: 0 !important; }
-  .djep-h1, .djep-h2, .djep-h3, #djep-content h1, #djep-content h2, #djep-content h3 { color: #ab29f2 !important; break-after: avoid; page-break-after: avoid; }
+  .djep-h1, .djep-h2, .djep-h3, #djep-content h1, #djep-content h2, #djep-content h3 { color: #713489 !important; break-after: avoid; page-break-after: avoid; }
   .djep-h1, #djep-content h1 { font-size: 18pt !important; }
   .djep-h2, #djep-content h2 { font-size: 15pt !important; }
-  .djep-h1::after, .djep-h2::after { background: #ab29f2 !important; }
+  .djep-h1::after, .djep-h2::after { background: #713489 !important; }
   :is(.djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id="djep-countdownclock"], #djep-content div[class^="djep-"][class$="box"]:not(.djep-requestlimitbox), #djep-content div[class^="djepm-"][class*="box"]:not([class*="playlistbox"])), .ps-wp .ps-wp-card, .djep-singleeventdiv { background: #ffffff !important; color: #111111 !important; border: 1px solid #d6d6d6 !important; border-radius: 6px !important; box-shadow: none !important; padding: 12px 14px !important; margin: 0 0 12px !important; break-inside: avoid; page-break-inside: avoid; }
   .djep-titlebar, .djep-titlebarsmall { margin: -12px -14px 10px !important; padding: 7px 14px !important; background: #f3f3f3 !important; color: #111111 !important; border-bottom: 1px solid #d6d6d6 !important; border-radius: 6px 6px 0 0 !important; font-size: 10.5pt !important; }
   #djep-content td, #djep-content th { color: #111111 !important; background: transparent !important; border-bottom: 1px solid #e3e3e3 !important; padding: 5px 8px !important; }
@@ -1107,7 +1108,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -1; background: l
   #djep-content textarea { min-height: 3em !important; height: auto !important; field-sizing: content; resize: none; overflow: visible; }
   #djep-content, #djep-content p, #djep-content td, #djep-content th, #djep-content li, #djep-content label, #djep-content span, #djep-content div, #djep-content strong, #djep-content b, .questiontitle { color: #111111 !important; }
   #djep-content small, #autosavecountdowntimer { color: #555555 !important; }
-  #djep-content input[type="checkbox"], #djep-content input[type="radio"] { accent-color: #ab29f2; }
+  #djep-content input[type="checkbox"], #djep-content input[type="radio"] { accent-color: #713489; }
   /* Save confirmations are only useful on screen. */
   #alert_message_div, #alert_message2_div, .djep-titlebarconfirm, .djep-titlebarmusicconfirm, #password_save_confirmation, #autosavecountdowntimer { display: none !important; }
   .djep-titlebarnotices, #warning_div, #client_visible_notes { background: #fff8e6 !important; border-color: #e8c26a !important; }
@@ -1115,10 +1116,10 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -1; background: l
   /* DJEP's built-in print rules add each link's web address after it; that's noise on a printed form. */
   a[href]::after, abbr[title]::after { content: "" !important; }
   :is(#djep-addsongimage, #djep-musicrequestsimage, #djep-printrequestsimage, #djep-printhelper, .djep-managemusicbox) { display: none !important; }
-  .djep-form-sections::before, .djep-sectiontitle::before { background: #f1f1f1 !important; border-left-color: #ab29f2 !important; }
+  .djep-form-sections::before, .djep-sectiontitle::before { background: #f1f1f1 !important; border-left-color: #713489 !important; }
   .djep-form-sections, .djep-sectiontitle { color: #111111 !important; }
   .calendar { box-shadow: none !important; border: 1px solid #d6d6d6 !important; }
-  #djep-content .calendar .month { background: #ab29f2 !important; color: #ffffff !important; }
+  #djep-content .calendar .month { background: #713489 !important; color: #ffffff !important; }
   .ps-wp-hello::before { display: none !important; }
   .ps-wp .ps-wp-title, .ps-wp .ps-wp-title b, .ps-wp .ps-wp-text, .ps-wp .ps-wp-count, .ps-wp .ps-wp-count b, .ps-wp .ps-wp-eyebrow { color: #111111 !important; }
   .ps-wp .ps-wp-count { background: #f3f3f3 !important; }
@@ -1136,8 +1137,6 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -1; background: l
    all read on them whatever the brand colors are. */
 .ps-fix-surface { background-color: var(--ps-card-2) !important; }
 .ps-fix-tint { background-color: var(--ps-accent-soft) !important; }
-/* Without the add-on: DJEP's own row colors in the music lists step back, so the design's light text shows. */
-:is([id$="_music_results"], [id^="request_table_div_"]) :is(table, tr, td, div, li)[bgcolor] { background-color: transparent !important; }
 
 /* ---------- 16. Safety: whatever DJEP hides stays hidden ----------
    DJEP hides messages and panels (e.g. "Your message was sent!", unused rows) with an inline display:none and
