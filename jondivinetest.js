@@ -1,4 +1,4 @@
-/* Alive Events client portal add-on  ·  version 6  ·  made with Elevate Portal Studio
+/* Alive Events client portal add-on  ·  version 7  ·  made with Elevate Portal Studio
    Loaded by one line in DJ Event Planner > Website Tools > Client Portal > Appearance > Custom Scripting Code.
    Publishing from Portal Studio replaces this file, so the portal picks up changes by itself. */
 (function (win, doc) {
@@ -35,6 +35,48 @@
       });
     }
     function run() { [].slice.call(doc.querySelectorAll('#djep-content table')).forEach(enhance); }
+    if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', run); else run();
+  })(window, document);
+(function (win, doc) {
+    if (!doc) return;
+    function embed(raw) {
+      var u = String(raw || '').trim(), m;
+      if (!/^https?:\/\//i.test(u)) return null;
+      if ((m = u.match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/i))) return { frame: 'https://www.youtube-nocookie.com/embed/' + m[1] + '?rel=0&modestbranding=1&playsinline=1' };
+      if ((m = u.match(/vimeo\.com\/(?:video\/|(?:channels|groups)\/[^/]+\/|manage\/videos\/)?(\d{6,})(?:\/([a-z0-9]{6,}))?/i))) { var h = m[2] || (u.match(/[?&]h=([a-z0-9]+)/i) || [])[1]; return { frame: 'https://player.vimeo.com/video/' + m[1] + (h ? '?h=' + h : '') }; }
+      if ((m = u.match(/loom\.com\/(?:share|embed)\/([a-f0-9]{16,})/i))) return { frame: 'https://www.loom.com/embed/' + m[1] + '?hide_owner=true&hide_share=true' };
+      if ((m = u.match(/(?:wistia\.com|wi\.st)\/medias\/([a-z0-9]+)/i))) return { frame: 'https://fast.wistia.net/embed/iframe/' + m[1] };
+      if ((m = u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:[^#]*&)?id=)([A-Za-z0-9_-]{10,})/i))) return { frame: 'https://drive.google.com/file/d/' + m[1] + '/preview' };
+      if (/dropbox\.com\/(s|scl\/fi)\//i.test(u)) { var c = u.replace(/([?&])dl=\d&?/i, '$1').replace(/[?&]$/, ''); return { file: c + (c.indexOf('?') < 0 ? '?' : '&') + 'raw=1' }; }
+      if (/\.(mp4|m4v|webm|mov)(\?|#|$)/i.test(u)) return { file: u };
+      return null;
+    }
+    function run() {
+      [].slice.call(doc.querySelectorAll('.ps-wp-frame a.ps-wp-vlink')).forEach(function (a) {
+        var frame = a.parentNode;
+        if (!frame || frame.querySelector('iframe, video')) return;
+        var e = embed(a.getAttribute('href'));
+        if (!e) return;
+        var title = (frame.parentNode && frame.parentNode.querySelector('.ps-wp-vtitle')) ? frame.parentNode.querySelector('.ps-wp-vtitle').textContent : 'Video';
+        var node;
+        if (e.frame) {
+          node = doc.createElement('iframe');
+          node.src = e.frame;
+          node.title = title;
+          node.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; encrypted-media; clipboard-write');
+          node.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          node.setAttribute('allowfullscreen', 'true');
+          node.setAttribute('loading', 'lazy');
+        } else {
+          node = doc.createElement('video');
+          node.src = e.file;
+          node.controls = true;
+          node.preload = 'metadata';
+          node.setAttribute('playsinline', 'playsinline');
+        }
+        frame.appendChild(node);
+      });
+    }
     if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', run); else run();
   })(window, document);
 (function (win, doc, cfg) {
