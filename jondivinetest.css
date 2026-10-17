@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Alive Events client portal theme  ·  version 8  ·  2026-10-17
+   Alive Events client portal theme  ·  version 9  ·  2026-10-17
    Made with Elevate Portal Studio (Elevate DJ Academy)
    Layout: Immersive  ·  Style: Stage  ·  Fonts: San Francisco (Apple) / San Francisco (Apple)
 
@@ -863,7 +863,7 @@ body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-chan
 .ps-hero-media, .ps-hero-eq, .ps-hero-logo { position: absolute; pointer-events: none; }
 .ps-hero-media { inset: 0; z-index: 0; background: var(--ps-header-bg, var(--ps-hero-bg)); transform-origin: 62% 40%; animation: ps-kenburns 26s ease-in-out infinite alternate; will-change: transform; }
 #djep-header > .ps-hero-logo { inset: 0; z-index: 1; background: var(--ps-logo-img) var(--ps-logo-pos) / auto var(--ps-logo-h) no-repeat; }
-.ps-hero-eq { left: 0; right: 0; bottom: 0; z-index: 0; height: 38px; display: flex; align-items: flex-end; gap: 4px; padding: 0 3%; opacity: 0.55; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
+.ps-hero-eq { left: 0; right: 0; bottom: 0; z-index: 0; height: 30px; display: flex; align-items: flex-end; gap: 4px; padding: 0 3%; opacity: 0.38; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
 .ps-hero-eq i { flex: 1 1 0; height: 100%; border-radius: 2px 2px 0 0; background: linear-gradient(to top, #ab29f2 0%, rgba(192,141,212,0.9) 60%, rgba(192,141,212,0.35) 100%); transform-origin: 50% 100%; transform: scaleY(.15); animation: ps-eq var(--ps-eq-d, 1s) ease-in-out var(--ps-eq-dl, 0s) infinite alternate; will-change: transform; }
 #djep-content > .ps-banner { animation: none; }
 @keyframes ps-eq { from { transform: scaleY(.1); } to { transform: scaleY(var(--ps-eq-h, 1)); } }
@@ -988,6 +988,10 @@ body::before { animation: ps-drift 30s ease-in-out infinite alternate; will-chan
 .ui-dialog .ui-dialog-buttonpane button, .djep-readviewbutton,
 .djep-clipboardbutton { min-height: 40px; padding: 8px 16px !important; font-size: 14px !important; margin: 0 8px 10px 0 !important; white-space: normal; vertical-align: middle; }
   #djep-content td input[type="button"], #djep-content td input[type="submit"] { margin: 4px 0 !important; }
+  /* Buttons that sit side by side on a computer (Plan My Event, Event Details, Make a Payment) stack into one neat
+     column of equal, full-width buttons. */
+  #djep-content :is(p, div[align="center"]):has(> :is(.djep-actionbutton, .djep-widgetaction, .djep-paymentbutton, .djep-planeventbutton, .djep-eventdetailsbutton, .djep-changebutton, .djep-searchbutton, .djep-addingplaylistbutton, .djep-addplaylistbutton, .djep-specialsongbutton, #submit_payment_button, #card-submit, #paypal_paynowbutton, #contact_submit, #djep-content input[type="submit"], #djep-content input[type="button"], #djep-content button[type="submit"], .ui-dialog .ui-dialog-buttonpane button)) { display: flex !important; flex-direction: column; align-items: stretch; gap: 10px; clear: both; width: 100%; margin: 14px 0 0 !important; line-height: 1.4 !important; text-align: center !important; }
+  #djep-content :is(p, div[align="center"]) > :is(.djep-actionbutton, .djep-widgetaction, .djep-paymentbutton, .djep-planeventbutton, .djep-eventdetailsbutton, .djep-changebutton, .djep-searchbutton, .djep-addingplaylistbutton, .djep-addplaylistbutton, .djep-specialsongbutton, #submit_payment_button, #card-submit, #paypal_paynowbutton, #contact_submit, #djep-content input[type="submit"], #djep-content input[type="button"], #djep-content button[type="submit"], .ui-dialog .ui-dialog-buttonpane button) { display: block !important; width: 100%; margin: 0 !important; padding: 10px 16px !important; min-height: 0 !important; line-height: 22px !important; text-align: center !important; white-space: nowrap; }
   .djep-h1 a, .djep-h2 a, .djep-h3 a { margin: 8px 8px 0 0 !important; }
   .ps-music-row { flex-direction: column; }
   /* Browse Music's A–Z letters and search row wrap to the screen. */
@@ -1125,6 +1129,15 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -1; background: l
   :is(.djep-relatedfilesbox, .djep-documentsbox) a:not([class*="button"])::after { display: none !important; }
   #djep-content .djep-welcometextbox:has(.ps-wp) { border: 0 !important; padding: 0 !important; }
 }
+
+/* ---------- 15b. Readable everywhere ----------
+   The add-on's contrast guard marks DJEP surfaces (fixed light rows in the phone music search, colored table rows)
+   that would hide the design's text; they take the design's own matching surface, so text, hover and tap colors
+   all read on them whatever the brand colors are. */
+.ps-fix-surface { background-color: var(--ps-card-2) !important; }
+.ps-fix-tint { background-color: var(--ps-accent-soft) !important; }
+/* Without the add-on: DJEP's own row colors in the music lists step back, so the design's light text shows. */
+:is([id$="_music_results"], [id^="request_table_div_"]) :is(table, tr, td, div, li)[bgcolor] { background-color: transparent !important; }
 
 /* ---------- 16. Safety: whatever DJEP hides stays hidden ----------
    DJEP hides messages and panels (e.g. "Your message was sent!", unused rows) with an inline display:none and
