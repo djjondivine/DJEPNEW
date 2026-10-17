@@ -1,4 +1,4 @@
-/* Alive Events client portal add-on  ·  version 9  ·  made with Elevate Portal Studio
+/* Alive Events client portal add-on  ·  version 10  ·  made with Elevate Portal Studio
    Loaded by one line in DJ Event Planner > Website Tools > Client Portal > Appearance > Custom Scripting Code.
    Publishing from Portal Studio replaces this file, so the portal picks up changes by itself. */
 (function (win, doc) {
@@ -339,8 +339,13 @@
       if (!fg || !s || ratio(fg, s.c) >= MIN) return;
       // Give a DJEP surface the design's matching one (theme loaded and the surface is DJEP's, not the page).
       if (s.el && T.card2 && T.text && !/^(djep-content|djep-page|djep-header|djep-navbar)$/.test(s.el.id) && s.el !== doc.body && !s.el.closest('.ps-wp')) {
+        // DJEP fades some row colors in; switch fades off while the new surface is applied and measured.
+        var fade = s.el.style.transition;
+        s.el.style.transition = 'none';
         s.el.classList.add(sat(s.c) > 0.12 ? 'ps-fix-tint' : 'ps-fix-surface');
         var now = surface(el);
+        win.getComputedStyle(s.el).backgroundColor;
+        s.el.style.transition = fade;
         if (now && ratio(rgb(win.getComputedStyle(el).color), now.c) >= MIN) return;
         if (now && now.el === s.el && ratio(now.c, s.c) < 1.05) {
           // DJEP forces that color (inline !important): set it the same way.
@@ -349,7 +354,7 @@
           now = surface(el);
           if (now && ratio(rgb(win.getComputedStyle(el).color), now.c) >= MIN) return;
         }
-        s = now || s;
+        s = surface(el) || s;
       }
       // Last resort: the most readable text color on what's behind it.
       var opts = [T.text, { r: 255, g: 255, b: 255 }, { r: 17, g: 17, b: 17 }].filter(Boolean);
@@ -381,7 +386,7 @@
         var list = pending.splice(0);
         list.forEach(function (n) { if (doc.contains(n) && n.closest && !n.closest(SKIP)) scan(n); });
         mo.takeRecords();
-      }, 120);
+      }, 450);
     });
     mo.observe(doc.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style', 'bgcolor'] });
   })(window, document);
@@ -504,4 +509,4 @@
       seen.forEach(function (el) { if (below(el)) { el.classList.add('ps-rv'); io.observe(el); } });
       all(o.wipe).forEach(function (el) { if (below(el)) { el.classList.add('ps-wipe'); io.observe(el); } });
     }
-  })(window, document, {"buttons":".djep-actionbutton br, .djep-widgetaction br, .djep-paymentbutton br, .djep-planeventbutton br, .djep-eventdetailsbutton br, .djep-changebutton br, .djep-searchbutton br, .djep-addingplaylistbutton br, .djep-addplaylistbutton br, .djep-specialsongbutton br, #submit_payment_button br, #card-submit br, #paypal_paynowbutton br, #contact_submit br, #djep-content input[type=\"submit\"] br, #djep-content input[type=\"button\"] br, #djep-content button[type=\"submit\"] br, .ui-dialog .ui-dialog-buttonpane button br","banner":false,"zoom":false,"eq":true,"spot":true,"reveal":true,"cards":".djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id=\"djep-countdownclock\"], #djep-content div[class^=\"djep-\"][class$=\"box\"]:not(.djep-requestlimitbox), #djep-content div[class^=\"djepm-\"][class*=\"box\"]:not([class*=\"playlistbox\"]), .ps-wp-card","wipe":".djep-form-sections, .djep-sectiontitle"});
+  })(window, document, {"buttons":".djep-actionbutton br, .djep-widgetaction br, .djep-paymentbutton br, .djep-planeventbutton br, .djep-eventdetailsbutton br, .djep-changebutton br, .djep-searchbutton br, .djep-addingplaylistbutton br, .djep-addplaylistbutton br, .djep-specialsongbutton br, #submit_payment_button br, #card-submit br, #paypal_paynowbutton br, #contact_submit br, #djep-content input[type=\"submit\"] br, #djep-content input[type=\"button\"] br, #djep-content button[type=\"submit\"] br, .ui-dialog .ui-dialog-buttonpane button br","banner":false,"zoom":true,"eq":true,"spot":true,"reveal":true,"cards":".djep-welcometextbox, .djep-eventlistbox, .djep-eventslistbox, .djep-latestemailsbox, .djep-upcomingmeetingsbox, .djep-eventdatetimesbox, .djep-eventdescriptionbox, .djep-servicedetailsbox, .djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox, .djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox, .djep-documentsbox, .djep-relatedfilesbox, .djep-requestchangesbox, .djep-requestchangesformbox, .djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox, .djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox, .djep-makepaymentbox, .djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox, .djep-emailmessagebox, .djep-contactdetailsbox, .djep-logindetailsbox, .djep-edittimelinebox, .djep-viewtimelinebox, .djep-planningformseditbox, .djep-planningformsviewbox, .djep-editweddingnamesbox, .djep-viewweddingnamesbox, .djep-viewdocumentbox, .djep-printdocumentbox, .djep-viewrequestboxes, .djep-guestrequesthowitworksbox, .djep-guestrequestsocialbox, .djep-guestrequestsettingsbox, .djep-guestrequestdescription, .djep-specialsongsbox, .djep-songrequestbox, [id=\"djep-countdownclock\"], #djep-content div[class^=\"djep-\"][class$=\"box\"]:not(.djep-requestlimitbox), #djep-content div[class^=\"djepm-\"][class*=\"box\"]:not([class*=\"playlistbox\"]), .ps-wp-card","wipe":".djep-form-sections, .djep-sectiontitle"});
